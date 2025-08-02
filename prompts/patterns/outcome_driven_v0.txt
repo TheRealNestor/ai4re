@@ -1,0 +1,21 @@
+Original Requirement: "[Your specific requirement text here]"
+Score: [Score value]
+Justifications: [Array of justification strings]
+
+Your goal is to transform this requirement so that it can be directly translated into an automated test case without further human interpretation.
+
+```json
+{
+  "refined_requirements": [
+    {
+      "requirement": "Single, atomic requirement text",
+      "rationale": "Explanation of why this specific requirement addresses the quality issues"
+    }
+  ],
+  "changes_made": [
+    "Specific changes applied (e.g., 'Split into 3 atomic requirements', 'Added measurable criteria')"
+  ],
+  "remaining_issues": [
+    "Issues requiring stakeholder input to resolve"
+  ]
+}

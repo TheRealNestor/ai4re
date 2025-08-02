@@ -1,0 +1,39 @@
+Sheet: Sheet1
+[36 rows x 2 columns]
+Column names: |Rule ID|Prompt for AI Requirement Writer
+0|R1|Use “the” to specify definite items.
+1|R2|Use active voice and clearly identify the actor.
+2|R3|Ensure subject and verb agreement.
+3|R4|Define all domain-specific terms and use them consistently.
+4|R6|Include units for all quantities. Specify metric or imperial.
+5|R7|Avoid vague terms like “fast,” “adequate,” or “normal.”
+6|R9|Do not use escape clauses like “if necessary” or “as appropriate.”
+7|R10|Avoid open-ended phrases like “etc.” or “including but not limited to.”
+8|R11|Remove superfluous infinitives like “to be able to.”
+9|R12|Use separate clauses for each condition.
+10|R13–R15|Use correct grammar, spelling, and punctuation.
+11|R16|Use a defined format for logical expressions (AND, OR, NOT).
+12|R17|Avoid using “not” in requirements. Use positive phrasing.
+13|R18|Do not use slashes (/) unless for units like km/h.
+14|R19|Write one requirement per sentence with one imperative.
+15|R20|Avoid combinators like “and,” “or,” “but.” Split into separate requirements.
+16|R22|Do not include rationale in the requirement text. Use a separate field.
+17|R23|Avoid parentheses and brackets. Move explanatory text elsewhere.
+18|R24|Enumerate sets of functions clearly.
+19|R25|Refer to diagrams or tables for complex requirements.
+20|R26|Avoid pronouns. Repeat the noun for clarity.
+21|R27|Do not use section headers as requirement context.
+22|R28|Avoid absolutes like “always,” “never,” or “all.”
+23|R29–R30|State applicability and condition relationships explicitly.
+24|R31|Classify requirements by type (e.g., functional, performance).
+25|R32|Ensure each requirement is expressed only once.
+26|R33|State “what” is needed, not “how” to implement it.
+27|R34|Avoid universal qualifiers like “all,” “any,” or “both.”
+28|R35|Provide performance ranges (e.g., 10–15°C).
+29|R36|Use measurable performance targets. Avoid vague quantifiers.
+30|R37|Avoid non-specific temporal words like “soon” or “eventually.”
+31|R38|Use terms consistently across the document.
+32|R39|Define acronyms and use them consistently.
+33|R40|Avoid abbreviations unless standardized and defined.
+34|R41|Follow the project-wide style guide for formatting and terminology.
+35|R43–R44|Group related requirements and use consistent structure/patterns.

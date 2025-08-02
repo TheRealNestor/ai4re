@@ -6,14 +6,14 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-API_KEY = os.getenv("GWEN_API_KEY")
+API_KEY = os.getenv("QWEN_API_KEY")
 if not API_KEY:
     raise ValueError(
-        "API key for Gwen is not set. Please set the GWEN_API_KEY environment variable."
+        "API key for Qwen is not set. Please set the QWEN_API_KEY environment variable."
     )
 
 
-class Gwen(BaseModel):
+class Qwen(BaseModel):
     def __init__(
         self,
         model_name: str = "qwen-plus",
