@@ -33,11 +33,32 @@ class MistralModel(BaseModel):
                 model=self.model_name,
                 messages=[
                     {"role": "system", "content": self.system_prompt},
-                    {"role": "user", "content": prompt}
+                    {"role": "user", "content": prompt},
                 ],
                 temperature=self.temperature,
             )
-            return response.choices[0].message.content
+            if not response.choices:
+                raise ValueError("No choices returned in the response.")
+
+            # Extract content from the message
+            message_content = response.choices[0].message.content
+
+            # Handle thinking models that return a list of chunks
+            if isinstance(message_content, list):
+                text_chunks = []
+                for chunk in message_content:
+                    # Only extract text from TextChunk objects, skip ThinkChunk
+                    if hasattr(chunk, "type") and chunk.type == "text":
+                        text_chunks.append(chunk.text)
+                    elif hasattr(chunk, "text") and not hasattr(chunk, "thinking"):
+                        # Fallback for direct text chunks
+                        text_chunks.append(chunk.text)
+                content = "".join(text_chunks)
+            else:
+                # Standard response format
+                content = message_content
+
+            return content
         except Exception as e:
             print(f"An error occurred: {e}")
             return None

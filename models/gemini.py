@@ -1,7 +1,6 @@
 from models.base_model import BaseModel
 
-from google import genai
-from google.genai import types
+from openai import OpenAI
 
 import os
 from dotenv import load_dotenv
@@ -25,37 +24,25 @@ class Gemini(BaseModel):
         ],  # Default system prompt from BaseModel
     ):
         super().__init__(model_name, temperature, system_prompt)
-        self.client = genai.Client(api_key=API_KEY)
-
+        self.client = OpenAI(
+            api_key=API_KEY,
+            base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
+        )
 
     def query(self, prompt: str) -> str:
-        """
-        Query the OpenAI GPT model with a prompt.
-
-        Args:
-            prompt (str): The input prompt to send to the model.
-
-        Returns:
-            str: The model's response to the prompt.
-
-        Raises:
-            ValueError: If the prompt is empty.
-            Exception: If an error occurs during the API call.
-        """
         if not prompt:
             raise ValueError("Prompt cannot be empty.")
         try:
-            response = self.client.models.generate_content(
+            response = self.client.chat.completions.create(
                 model=self.model_name,
-                config=types.GenerateContentConfig(
-                    system_instruction=self.system_prompt,
-                    temperature=self.temperature,
-                ),
-                contents=prompt,
+                messages=[
+                    {"role": "system", "content": self.system_prompt},
+                    {"role": "user", "content": prompt},
+                ],
+                temperature=self.temperature,
+                max_tokens=65535,  # This should be default, but I had outputs that were truncated.
             )
-            return response.candidates[0].content if response.candidates else None
-
+            return response.choices[0].message.content
         except Exception as e:
             print(f"An error occurred: {e}")
             return None
-

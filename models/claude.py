@@ -18,9 +18,7 @@ class Claude(BaseModel):
         self,
         model_name: str = "claude-3-5-haiku-latest",
         temperature: float = 0.7,
-        system_prompt: str = BaseModel.__init__.__defaults__[
-            1
-        ],  # Default system prompt from BaseModel
+        system_prompt: str = "You are a helpful assistant.",
     ):
         super().__init__(model_name, temperature, system_prompt)
         self.client = anthropic.Anthropic(api_key=API_KEY)
@@ -37,7 +35,8 @@ class Claude(BaseModel):
             raise ValueError("Prompt cannot be empty.")
         try:
             response = self.client.messages.create(
-                model="claude-3-5-haiku-latest",
+                model=self.model_name,  # Use the configured model name
+                max_tokens=4000,  # Add required max_tokens parameter
                 temperature=self.temperature,
                 system=self.system_prompt,
                 messages=[{"role": "user", "content": prompt}],
@@ -55,11 +54,3 @@ class Claude(BaseModel):
         except Exception as e:
             print(f"An error occurred: {e}")
             return None
-
-
-# Anthropic models:
-# Claude Opus 4	claude-opus-4-0	claude-opus-4-20250514
-# Claude Sonnet 4	claude-sonnet-4-0	claude-sonnet-4-20250514
-# Claude Sonnet 3.7	claude-3-7-sonnet-latest	claude-3-7-sonnet-20250219
-# Claude Sonnet 3.5	claude-3-5-sonnet-latest	claude-3-5-sonnet-20241022
-# Claude Haiku 3.5	claude-3-5-haiku-latest	claude-3-5-haiku-2024102

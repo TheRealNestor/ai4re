@@ -1,0 +1,54 @@
+Mixture of opinions for scoring
+
+Make output format more flexible, just generic json should be fine and easy to parse 
+
+Run benchmark 
+
+Add name of prompt pattern, not just the model to the output for data analysis? 
+
+
+
+--------------------- BEFORE NEXT MEETING ---------------
+
+    - Run the benchmark
+    - Preliminary analysis. How to improve the prompt for the agent (not widget)
+
+    - Try to implement an agent. Does it work as one prompt?
+        -- How to guard against hallucinated scores?
+
+    - 
+
+
+_______________________________________________________
+Hulbert (2023) has proposed Tree-of-Thought Prompting, which applies the main concept from ToT frameworks as a simple prompting technique, getting the LLM to evaluate intermediate thoughts in a single prompt. A sample ToT prompt is:
+
+Imagine three different experts are answering this question.
+All experts will write down 1 step of their thinking,
+then share it with the group.
+Then all experts will go on to the next step, etc.
+If any expert realises they're wrong at any point then they leave.
+The question is...
+
+Sun (2023) benchmarked the Tree-of-Thought Prompting with large-scale experiments, and introduce PanelGPT --- an idea of prompting with Panel discussions among LLMs.
+
+
+--------------------------------------
+#TODO: Scoring agent for benchmark?????
+
+Goal is to only look at the refinement prompt for now, so we want to keep the model and prompt for scoring the same.
+
+Maybe run with a subset of 100 random requirements (same subset) for each model using the same prompt,
+afterwards take the average score and use the model that is closest to that?
+
+
+
+----------------------------------------
+RERUN existing agents after cleaning up the dataset
+.........................................
+Gemini Pro 2.5 just trunactes the output randomly (sometimes happens for a requirement, and sometimes don't)
+
+Fix retry logic. Is it possible to extend the base model to check if valid json (though keep the json template agnostic)
+
+If not, manually retry based on the output of clean_json_output. If None, then try again some number of times.
+
+

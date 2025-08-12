@@ -541,7 +541,7 @@ F,The system shall provide charts for the Activity or Event actual versus assume
 A,The RFS system should be available 24/7  especially during the budgeting period. The RFS system shall be available 90% of the time all year  and 98% during the budgeting period. 2% of the time  the system will become available within 1 hour of the time that the situation is reported.
 O,98% of the user workstations shall meet the minimum hardware requirements prior to implementation. Minimum Hard Disk Space
 O,98% of the user workstations shall meet the minimum software requirements prior to implementation
-O,The RFS system should be able to easily interface with the BDW environment  in order to load the data.  	7 data files shall be received from the BDW and loaded into the RFS system within 3 hours one day prior to the start of budgeting process  every year. The data will be as of October month-end. 	Test files (7) shall be loaded up to 5 times throughout the year  from the BDW.
+O,The RFS system should be able to easily interface with the BDW environment  in order to load the data. 7 data files shall be received from the BDW and loaded into the RFS system within 3 hours one day prior to the start of budgeting process  every year. The data will be as of October month-end. 	Test files (7) shall be loaded up to 5 times throughout the year  from the BDW.
 MN,Changes to revenue and expense formulae must be applied to the RFS system  every year  prior to the budgeting process start. Revenue and expense formulae will be updated within one week of their receipt  after which 2 weeks will be allotted to testing of the budget calculations  to be conducted jointly by the project development team and PCG Finance.
 MN,New branches/complexes/districts/regions and revenue/expense accounts added to the BDW  must be reflected in the RFS system. 100% of the entities (mentioned above) available as of October month-end  will be loaded into the RFS system  prior to the budget start process.
 SE,Only authorized user shall access the RFS system. ONLY users that exist in the UAS system  with the RFS system assigned to their role(s)  shall access the RFS system and use it.
@@ -673,8 +673,8 @@ NFR,The app runs on a smart phone with operating system Android version 2.3.
 NFR,"All layout shall be according to the TU/e corporate identity, unless in conflict with the guidelines of requirements UCOR003-UCOR006."
 NFR,Icons are according to the Android Icon Guidelines.
 NFR,The user interfaces should be according to the Android User Interface Guidelines.
-NFR,The Twitter â€tweetâ€ interface should be according to the Twitter Guidelines.
-NFR,The Facebook â€likeâ€ interface should be according to the Facebook Guidelines.
+NFR,The Twitter tweet interface should be according to the Twitter Guidelines.
+NFR,The Facebook like interface should be according to the Facebook Guidelines.
 NFR,The campus map covers the campus of the TU/e.
 NFR,The campus map covers the central train station of Eindhoven.
 NFR,A new stylistic map has the right dimensions.
@@ -686,7 +686,7 @@ NFR,The information and the search methods of the Encyclopedia-app are restricte
 NFR,The information and the search methods of the Studenthandbook-app are restricted depending on file format of the handbook-information.
 NFR,Response Time GIST: The fastness of the search SCALE: The response time of a search METER: Measurements obtained from 1000 searches during testing. MUST: No more than 2 seconds 100% of the time. WISH: No more than 1 second 100% of the time.
 NFR,"System Dependability GIST: The fault tolerance of the system. SCALE: If the system loses the connection to the Internet or to the GPS device or the system gets some strange input, the user should be informed. METER: Measurements obtained from 1000 hours of usage during testing. MUST: 100% of the time."
-NFR,Hard Drive Space GIST: Hard drive space. SCALE: The applicationâ€™s need of hard drive space. METER: MB. MUST: No more than 20 MB. PLAN: No more than 15 MB. WISH: No more than 10 MB. MB: DEFINED: Megabyte
+NFR,Hard Drive Space GIST: Hard drive space. SCALE: The application's need of hard drive space. METER: MB. MUST: No more than 20 MB. PLAN: No more than 15 MB. WISH: No more than 10 MB. MB: DEFINED: Megabyte
 NFR,Application Memory Usage GIST: The amount of Operate System memory occupied by the application. SCALE: MB. METER: Observations done from the performance log during testing MUST: No more than 20 MB. PLAN: No more than 16 MB WISH: No more than 10 MB Operate System: DEFINED: The mobile Operate System which the application is running on. MB: DEFINED: Megabyte.
 NFR,System Reliability GIST: The reliability of the system. SCALE: The reliability that the system gives the right result on a search. METER: Measurements obtained from 1000 searches during testing. MUST: More than 98% of the searches. PLAN: More than 99% of the searches. WISH: 100% of the searches.
 NFR,System Availability GIST: The availability of the system when it is used. SCALE: The average system availability (not considering network failing). METER: Measurements obtained from 1000 hours of usage during testing. MUST: More than 98% of the time. PLAN: More than 99% of the time. WISH: 100% of the time.
@@ -703,16 +703,16 @@ NFR,Application extendibility DESC: The application should be easy to extend. Th
 NFR,Application testability DESC: Test environments should be built for the application to allow testing of the applications different functions.
 NFR,Application portability DESC: The application should be portable with iOS and Android.
 NFR,Performance Requirements 10000 users should be able to use the system at the same time. The response time of the system should be 2 seconds at most.
-NFR,Design Constraints We will use â€œwaterfall methodâ€ and Object â€“ Oriented Programming paradigm. We will use Java as programming language. The Android version of the device should be 2.3 or higher. The system requires Internet connection all the time.
-NFR,â€‹ The system will be designed in such a way that the algorithms for the four main units will be able to be easily swapped out.
-NFR,The overall accuracy of the Web APIâ€™s response will be measured using a developer-made testing set.
+NFR,Design Constraints We will use waterfall method and Object Oriented Programming paradigm. We will use Java as programming language. The Android version of the device should be 2.3 or higher. The system requires Internet connection all the time.
+NFR,The system will be designed in such a way that the algorithms for the four main units will be able to be easily swapped out.
+NFR,The overall accuracy of the Web API's response will be measured using a developer-made testing set.
 NFR,The overall accuracy is calculated by dividing total number of correct answers by the number of questions asked.
-NFR,The accuracy of the Generic Question Constructionâ€‹ part will be close to 80% 
+NFR,The accuracy of the Generic Question Construction part will be close to 80% 
 NFR,Modularity  The system will be designed in such a way that the algorithms for the four main units will be able to be easily swapped out. 
-NFR,"The overall accuracy of the Web APIâ€™s response will be measured using a developer-made testing set. The overall accuracy is calculated by dividing total number of correct answers by the number of questions asked. The accuracy of the Generic Question Constructionâ€‹ part will be close to 80%. The accuracy of the Generic Answer Constructionâ€‹ unit will be close to 70% The accuracy of the Generic Answer Populationâ€‹ unit will be close to 70% Drexel facilitiesâ€™ locations and schedules will have accuracy greater than 70%  â€‹ Drexel staffâ€™s office locations, contact information, and positions will have accuracy greater than 70%. â€‹ Drexel policies including academics, admissions, information technology etc. will have accuracy greater than 70%.â€‹ â€‹ On-campus dining locations, hours, food types, etc. will have accuracy greater than 50%. â€‹ Food trucksâ€™ general locations, hours, and food types on Drexel Campus will have accuracy greater than 40%. "
+NFR,"The overall accuracy of the Web API's response will be measured using a developer-made testing set. The overall accuracy is calculated by dividing total number of correct answers by the number of questions asked. The accuracy of the Generic Question Construction part will be close to 80%. The accuracy of the Generic Answer Construction unit will be close to 70% The accuracy of the Generic Answer Population unit will be close to 70% Drexel facilities' locations and schedules will have accuracy greater than 70%   Drexel staff's office locations, contact information, and positions will have accuracy greater than 70%.  Drexel policies including academics, admissions, information technology etc. will have accuracy greater than 70%.  On-campus dining locations, hours, food types, etc. will have accuracy greater than 50%.  Food trucks' general locations, hours, and food types on Drexel Campus will have accuracy greater than 40%. "
 NFR,"Fast Response The average time for the server to respond, over the question testing set, will be less than or equal to 2 seconds"
 NFR,"Security The connection between the Web API and the programs will use HTTPS, for security."
-NFR,Ease of Useâ€‹ A new user will make less than 3 mistakes in 5 minutes after 5 minutes of use.
+NFR,A new user will make less than 3 mistakes in 5 minutes after 5 minutes of use.
 NFR,The search feature should be prominent and easy to find for the user.
 NFR,"The different search options should be evident, simple and easy to understand."
 NFR,The results displayed in the list view should be user friendly and easy to understand. Selecting an element in the result list should only take one click.
@@ -725,7 +725,7 @@ NFR,Reduce the typing option by giving support for select menus.
 NFR,The primary performance requirement is speed of the network.  The application itself will only have minimal logic and so there should be little to no issues with the computation required by the phone itself.
 NFR,"There are no safety requirements with this application, other than any normal hazards of a mobile device.  The only hazard is a user using the device when they should not be, such as while driving."
 NFR,The application must be able to link up with the INTERNAL system in order for users to properly log in and be identified.  This information must be kept secure.
-NFR,"The primary attribute of this application will be usability given the large amounts of data and information that will be presented on such a small screen, as well as the userâ€™s ability to input data into the device in a reasonable manner that should not be that much more difficult than if they were at an actual computer."
+NFR,"The primary attribute of this application will be usability given the large amounts of data and information that will be presented on such a small screen, as well as the user's ability to input data into the device in a reasonable manner that should not be that much more difficult than if they were at an actual computer."
 NFR,"With regards to the intended number of users in the Amsterdam pilot, and the projected load scenarios, the intention is for the system to be able to serve 20.000 queries / day (in large part during the 4 peak traffic hours)."
 NFR,"In order to create a viable offering for the user we will have to build a simple, transparent system that can be understood and trusted by the people that are using it."
 NFR,"Anonimization & aggregation, so that route information may be shared safely without disclosing personal information."
@@ -738,7 +738,7 @@ NFR,Sub-apps and their launchers can be added to the main app by a qualified pro
 NFR,Sub-apps and their launchers in the main app can be deleted by a qualified programmer.
 NFR,"The application maintainer should also be able to change the (lists of) information sources of the sub-applications: agenda, news, Facebook and Twitter "
 NFR,"Application maintainers should be able to maintain the application, without having knowledge about Java Android programming. They should be able to modify the approximate appearance of the application. This means the colors, and GUI figures in the applications, but not the addition/deletion of GUI elements."
-NFR,"Application will be extendable. This means that a skilled Java Android programmer should be able to easily add a new sub-application to insApption, and add a launcher to it in the main-application."
+NFR,"Application will be extendable. This means that a skilled Java Android programmer should be able to easily add a new sub-application to the system, and add a launcher to it in the main-application."
 NFR,Users must be a Radford University student in order to access the automatic class schedule and assignment sharing features of this application Users can authenticate by logging in using their RU username and password.
 NFR,Most functionality will not require network connectivity.  System components that require authentication through Radford University and network connectivity will function as long as the systems maintained by the University are available.
 NFR,The development team will follow best practices for clean code and software modularity in order to make the application as maintainable as possible.
@@ -746,16 +746,16 @@ NFR,Users will be able to access this application on or off campus anytime on th
 NFR,"The application will be highly extensible in terms of adding course and calendar details or views.  However, the application in general has low extensibility."
 NFR,An application instance shall be able to be reusable every semester for a returning student.The user will be able to update their class schedule by having the application check for a registered schedule set for the next semester and if the current school semester is over.Application components will be able to be integrated into the larger RU Mobile application developed and maintained by Radford University.
 NFR,The system will be designed in such a way that the algorithms for the four main units will be able to be easily swapped out.
-NFR,The accuracy of the Generic Question Constructionâ€‹ part will be close to 80%.
-NFR,The accuracy of the Generic Answer Constructionâ€‹ unit will be close to 70%.
-NFR,The accuracy of the Generic Answer Populationâ€‹ unit will be close to 70%.
+NFR,The accuracy of the Generic Question Construction part will be close to 80%.
+NFR,The accuracy of the Generic Answer Construction unit will be close to 70%.
+NFR,The accuracy of the Generic Answer Population unit will be close to 70%.
 NFR,"The average time for the server to respond, over the question testing set, will be less than or equal to 2 seconds."
 NFR,"The connection between the Web API and the programs will use HTTPS, for security."
 NFR,A new user will make less than 3 mistakes in 5 minutes after 5 minutes of use.
 NFR,"FAU class contains requirements for recording the occurrence of security relevant events that take place under TSF control. This family identifies the level of auditing, enumerates the types of events that shall be auditable by the TSF, and identifies the minimum set of audit related information that should be provided within various audit record types. The following extended requirement for the FAU class has been included in this ST because the operational environment is capable of providing security audit generation for TSF functions."
 NFR,"Performance should not be an issue because all of our server queries involve small pieces of data. Changing screens will require very little computation and thus will occur very quickly. Server updates should only take a few seconds as long as the phone can maintain a steady signal. The cost-division algorithms used by in application will be highly efficient, taking only a fraction of a second to compute."
-NFR,SplitPay will not affect data stored outside of its servers nor will it affect any other applications installed on the userâ€™s phone. It cannot cause any damage to the phone or its internal components. The only potential safety concern associated with this application applies to virtually all handset apps: SplitPay should not be used while operating a vehicle or in any other situation where the userâ€™s attention must be focused elsewhere.
-NFR,"This application assumes that only the user or whoever he/she allows will have access to his/her Android handset. With that being said, only a Google email address is required to verify the identity of the user upon opening the app. Since it is not password protected, there is no method to authenticate the userâ€™s identity. This could only pose a thread if a user has set up PayPal functionality, however any transaction involving real currency must be authorized and confirmed before becoming final. The PayPal API provides all of the security checks needed to ensure that no fraudulent transactions occur."
+NFR,SplitPay will not affect data stored outside of its servers nor will it affect any other applications installed on the user's phone. It cannot cause any damage to the phone or its internal components. The only potential safety concern associated with this application applies to virtually all handset apps: SplitPay should not be used while operating a vehicle or in any other situation where the user's attention must be focused elsewhere.
+NFR,"This application assumes that only the user or whoever he/she allows will have access to his/her Android handset. With that being said, only a Google email address is required to verify the identity of the user upon opening the app. Since it is not password protected, there is no method to authenticate the user's identity. This could only pose a thread if a user has set up PayPal functionality, however any transaction involving real currency must be authorized and confirmed before becoming final. The PayPal API provides all of the security checks needed to ensure that no fraudulent transactions occur."
 NFR,The graphical user interface of SplitPay is to be designed with usability as the first priority. The app will be presented and organized in a manner that is both visually appealing and easy for the user to navigate. There will be feedbacks and visual cues such as notifications to inform users of updates and pop-ups to provide users with instructions.
 NFR,"To ensure reliability and correctness, there will be zero tolerance for errors in the algorithm that computes and splits expenses between group members. To maintain flexibility and adaptability, the app will take into account situations in which a user loses internet connection or for whatever reason cannot establish a connection with the server. These users will still be able to use the application, but any Bills, transactions, etc. posted while disconnected will be cached until the connection is restored."
 NFR,All text elements in the user interfaces are presented in the selected language (for language selection see requirement UCAR101. The available languages are mentioned in UCAR002 and UCAR003) 
@@ -768,7 +768,7 @@ NFR,The administrator can change buttons used in the user interfaces of the sub-
 NFR,The administrator can change the background used in the user interfaces of the sub- apps and main-app (this does not include the external resources).
 FR,The administrator can change text elements used in the user interfaces of the sub-apps and main-app (this does not include the external resources).
 FR,The language can only be selected in the main app.
-FR,The default language of insApption is English
+FR,The default language of the application is English
 FR,The main menu contains a launcher to the Map-app.3.1.3
 FR,The main menu contains a launcher to the News-app.3.1.4
 FR,The main menu contains a launcher to the Agenda-app.3.1.5
@@ -777,8 +777,8 @@ FR,The main menu contains a launcher to the Twitter-app.3.1.10
 FR,The main menu contains a launcher to the Employee-finder-app.3.1.6
 FR,"The main menu contains a launcher to the Encyclopedia-app, only if the Dutch language is selected.3.1.7"
 FR,"The main menu contains a launcher to the Student handbook-app, only if the Dutch language is selected.3.1.8 "
-FR,It is possible to â€œlikeâ€ insApption from within the main menu.
-FR,It is possible to â€œtweetâ€ insApption from within the main menu.
+FR,It is possible to like from within the main menu.
+FR,It is possible to tweet from within the main menu.
 FR,There is a link to a Twitter settings menu.
 FR,There is a link to a Facebook settings menu.
 FR,"In the settings menu for Twitter the user can save username in combination with password, regarding Twitter."
@@ -790,7 +790,7 @@ FR,It is possible to search for a certain building on the campus of the TU/e by 
 FR,It is possible to search for a certain building on the campus of the TU/e by address.
 FR,It is possible to search for a certain POI on the campus of the TU/e by name.
 FR,A search described in requirements UCAR201 and UCAR202 results in a displayed set of buildings that match the search input.
-FR,A search described in requirements UCAR203 results in a displayed set of POIâ€™s that match the search input.
+FR,A search described in requirements UCAR203 results in a displayed set of POI's that match the search input.
 FR,"It is possible to view an element from the search result described in UCAR201, UCAR202 and UCAR203 in the map view."
 FR,It is possible to navigate from a building on the campus to another building on the campus.
 FR,It is possible to navigate from a building on the campus to a POI on the campus.
@@ -816,9 +816,9 @@ FR,It is possible to switch between stylistic map view and satellite map view.
 FR,It is possible to zoom when in the map view.
 FR,It is possible to pan when in the map view.
 FR,Current location is shown in the map view.
-FR,POIâ€™s of a building are indicated.
-FR,It is possible to â€œtweetâ€ the userâ€™s current location.
-FR,It is possible to change the status on Facebook. The new status will indicate the userâ€™s current location.
+FR,POI's of a building are indicated.
+FR,It is possible to tweet the user's current location.
+FR,It is possible to change the status on Facebook. The new status will indicate the user's current location.
 FR,The administrator can change the stylistic map.
 FR,The administrator can add buildings.
 FR,The administrator can remove buildings.
@@ -826,15 +826,15 @@ FR,The administrator can add vertices of a path which is used in the route plann
 FR,The administrator can remove vertices of a path which is used in the route planner.
 FR,The administrator can remove edges of a path which is used in the route planner.
 FR,The administrator can add edges of a path which is used in the route planner.
-FR,"The administrator can add POIâ€™s. A POI should belong to a certain building, floor and room number."
-FR,"The administrator can remove POIâ€™s. A POI should belong to a certain building, floor and room number."
+FR,"The administrator can add POI's. A POI should belong to a certain building, floor and room number."
+FR,"The administrator can remove POI's. A POI should belong to a certain building, floor and room number."
 FR,"The administrator can link a POI to a certain building, floor and room."
 FR,"The administrator can unlink a POI from a certain building, floor and room."
 FR,Titles of all news items available through the news RSS-feeds are shown on the title screen.
 FR,"From the first titles of the news articles, the first lines are shown."
 FR,Full news report is shown after choosing the corresponding news title.
-FR,It is possible to â€œlikeâ€ a certain news item.
-FR,It is possible to â€œtweetâ€ a certain news item.
+FR,It is possible to like a certain news item.
+FR,It is possible to tweet a certain news item.
 FR,The administrator can modify the list of news RSS-feeds that are available in English.
 FR,The administrator can modify the list of news RSS-feeds that are available in Dutch.
 FR,"When the agenda-app is started, upcoming events are shown on the title screen."
@@ -848,8 +848,8 @@ FR,By selecting a certain day in the calendar the events for that day are shown.
 FR,It is possible to search for events by date.
 FR,It is possible to search for events by subject.
 FR,A search described in requirements UCAR406 and UCAR407 results in a displayed set of events that match the search input.
-FR,It is possible to â€œlikeâ€ a certain event.
-FR,It is possible to â€œtweetâ€ a certain event.
+FR,It is possible to like a certain event.
+FR,It is possible to tweet a certain event.
 FR,The only events that are available in the agenda-app are extracted from the agenda RSS-feeds in the selected language.
 FR,The administrator can modify the list of agenda RSS-feeds that are available in English.
 FR,The administrator can modify the list of agenda RSS-feeds that are available in Dutch.
@@ -857,16 +857,16 @@ FR,It is possible to search a person by name.
 FR,It is possible to search a person by department.
 FR,A search described in requirements UCAR501 and UCAR502 results in a displayed set of employees that match the search input.
 FR,It is possible to view all personal info available through the employee pages of a person in the search result set of requirement UCAR503.
-FR,It is possible to show the location of the employeeâ€™s office in the map view (see 3.1.3).
-FR,It is possible to plan a route to the location of the employeeâ€™s office (see 3.1.3).
+FR,It is possible to show the location of the employee's office in the map view (see 3.1.3).
+FR,It is possible to plan a route to the location of the employee's office (see 3.1.3).
 FR,When the Encyclopedia-app is started the most searched items are shown on the title screen.
 FR,When the Encyclopedia-app is started the most recent items are shown on the title screen.
 FR,It is possible to search the book by a certain word or phrase.
 FR,A search described in requirement UCAR602 results in a displayed set of topics.
 FR,The user can select a topic from the search result list.
 FR,By clicking on a topic the full text regarding that topic is shown.
-FR,It is possible to â€œlikeâ€ a certain topic.
-FR,It is possible to â€œtweetâ€ a certain topic.
+FR,It is possible to like a certain topic.
+FR,It is possible to tweet a certain topic.
 FR,When the student handbook-app is started the most searched items are shown on the title screen.
 FR,A search described in requirement UCAR702 results in a displayed set of topics.
 FR,The user can select a topic from the search result described in requirement UCAR703.
@@ -882,9 +882,9 @@ FR,"User registration - Mobile application DESC: Given that a user has downloade
 FR,"User log-in - Mobile application DESC: Given that a user has registered, then the user should be able to log in to the mobile application. The log-in information will be stored on the phone and in the future the user should be logged in automatically."
 FR,"Retrieve password DESC: Given that a user has registered, then the user should be able to retrieve his/her password by e-mail."
 FR,"Mobile application - Search DESC: Given that a user is logged in to the mobile application, then the first page that is shown should be the search page. The user should be able to search for a restaurant, according to several search options. The search options are Price, Destination, Restaurant type and Specific dish. There should also be a free text search option. A user should be able to select multiple search options in one search."
-FR,"Mobile application - Search result in a map view DESC: Search results can be viewed on a map. On the map, the relevant and closest restaurants according to the userâ€™s position are shown. A specific pin will represent a specific restaurant location. On each pin there should be an information link. There should be maximally 100 results displayed. The map view should have a default zoom. The map view should include a button that, when selected, should display different filtering options in a filtering menu."
-FR,"Mobile application - Search result in a list view Search results can be viewed in a list. Each element in the list represents a specific restaurant. Each element should include the restaurant name, telephone number, type of food, distance according to the userâ€™s position, average price, a short two-line description, a link to the restaurantâ€™s web-page and an information link. There should be maximally 100 results displayed. If the result contains more restaurants than what can be displayed on the screen at one time, the user should be able to scroll through them. When searching by price the restaurants should be sorted according to the following order: 1. average price 2. distance 3. restaurant type 4. specific dish When searching by a search option, other than price, the restaurants should be sorted according to the following order: 1. distance 2. average price 3. restaurant type 4. specific dish The list view should include a header with different selectable sorting options. The list view should include a button that, when selected, should display different filtering options in a filtering menu."
-FR,"Mobile application - Navigation to restaurant DESC: A user should be able to select a pin on a map or an element on a list. When a selection is made, the location of the restaurant should be sent to the mobile phoneâ€™s GPS-navigation program. The user should then be navigated to the destination. When the destination is reached, a user should be able to go back to the search page on the mobile application."
+FR,"Mobile application - Search result in a map view DESC: Search results can be viewed on a map. On the map, the relevant and closest restaurants according to the user's position are shown. A specific pin will represent a specific restaurant location. On each pin there should be an information link. There should be maximally 100 results displayed. The map view should have a default zoom. The map view should include a button that, when selected, should display different filtering options in a filtering menu."
+FR,"Mobile application - Search result in a list view Search results can be viewed in a list. Each element in the list represents a specific restaurant. Each element should include the restaurant name, telephone number, type of food, distance according to the user's position, average price, a short two-line description, a link to the restaurant's web-page and an information link. There should be maximally 100 results displayed. If the result contains more restaurants than what can be displayed on the screen at one time, the user should be able to scroll through them. When searching by price the restaurants should be sorted according to the following order: 1. average price 2. distance 3. restaurant type 4. specific dish When searching by a search option, other than price, the restaurants should be sorted according to the following order: 1. distance 2. average price 3. restaurant type 4. specific dish The list view should include a header with different selectable sorting options. The list view should include a button that, when selected, should display different filtering options in a filtering menu."
+FR,"Mobile application - Navigation to restaurant DESC: A user should be able to select a pin on a map or an element on a list. When a selection is made, the location of the restaurant should be sent to the mobile phone's GPS-navigation program. The user should then be navigated to the destination. When the destination is reached, a user should be able to go back to the search page on the mobile application."
 FR,Mobile application - Switch result view DESC: A user should be able to switch between a map view and a list view for all search options.
 FR,"Mobile application - Selecting the information link DESC: A user should be able to select the information link, which is included on all result items. The link will direct the user to an information page, which includes a picture of the restaurant, the restaurant name, address, phone number, e-mail address, type of food, average price, restaurant description and a menu with name, description and price of the different dishes."
 FR,Mobile application - Search by price DESC: A user should be able to input a maximum and a minimum price range. The result is displayed in a list view by default.
@@ -894,14 +894,14 @@ FR,Mobile application - Search by restaurant type DESC: A user should be able to
 FR,Mobile application - Search by specific dish DESC: A user should be able to select a specific dish in a given list as input. The result is displayed in a map view by default.
 FR,"Mobile application - Free-text search DESC: A user should be able to conduct a search by providing either restaurant name, restaurant description, restaurant address, restaurant type or restaurant menu in the free-text search field. The result is displayed in a map view by default."
 FR,Mobile application - No match found DESC: If no match is found the user should be informed but kept on the search page in order to get the possibility to conduct a new search right away.
-FR,"Mobile application - Sorting results DESC: When viewing the results in a list, a user should be able to sort the results according to price, distance, restaurant type, specific dish or restaurant name. When sorting by restaurant name, specific dish or restaurant type the results should be ordered alphabetically. When sorting by price the results should be ordered from cheapest to most expensive. When sorting by distance the results should be ordered from closets to furthest distance according to the userâ€™s position. When the sort button for a specific search option is clicked, then the order should be reversed and ordered in a descending matter. If the sort button is clicked again the order of the results should be reversed."
+FR,"Mobile application - Sorting results DESC: When viewing the results in a list, a user should be able to sort the results according to price, distance, restaurant type, specific dish or restaurant name. When sorting by restaurant name, specific dish or restaurant type the results should be ordered alphabetically. When sorting by price the results should be ordered from cheapest to most expensive. When sorting by distance the results should be ordered from closets to furthest distance according to the user's position. When the sort button for a specific search option is clicked, then the order should be reversed and ordered in a descending matter. If the sort button is clicked again the order of the results should be reversed."
 FR,"Mobile application - Filtering results DESC: When viewing the results in a list or a map, a user should be able to filter the results in a filtering menu. The filtering options include: increasing or decreasing the maximum distance increasing or decreasing the maximum price choosing a restaurant type choosing a specific dish"
 FR,"Mobile application - Profile page DESC: On the mobile application, a user should have a profile page. On the profile page a user can edit his/her information, which includes the password, e-mail address and phone number. A user should also be able to choose what language the mobile application should be set to. The different language choices are Swedish, English, Spanish and French."
 FR,Required information for registration Given the restaurant owner wants to create an account And the restaurant owner does not have an account When the restaurant owner registers on the web-portal by providing user-name And password And address And e-mail address And phone number Then the restaurant owner should be able to apply for verification 
 FR,Full information for registration Given the restaurant owner wants to create an account And the restaurant owner does not have an account When the restaurant owner registers on the web-portal by providing user name And password And address And e-mail address And phone number And mobile number Then the restaurant owner should be able to apply for verification
 FR,Confirmed registration Given the restaurant owner has applied for verification And has not received a confirmation e-mail after registration When the restaurant owner receives a confirmation e-mail Then the restaurant owner should be able to log in
 FR,Successful log-in Given the restaurant owner wants to log in When the restaurant owner logs in with his/her account Then the restaurant owner should be logged in as a restaurant owner
-FR,Retrieve password Given the restaurant owner wants to log in And has lost the password When the restaurant owner enters his/her email address in the â€œRetrieve passwordâ€ form And submits the form Then the restaurant owner should receive an email containing the password
+FR,Retrieve password Given the restaurant owner wants to log in And has lost the password When the restaurant owner enters his/her email address in the Retrieve password form And submits the form Then the restaurant owner should receive an email containing the password
 FR,Show fields for managing information Given the restaurant owner is logged in When the restaurant owner wants to manage information Then the restaurant owner should be able to manage information in a form
 FR,Filling in mandatory fields Given the restaurant owner wants to fill in the mandatory fields of the form When the restaurant owner provides average price And address And e-mail address And phone number And restaurant name Then the restaurant owner has filled the mandatory fields of the form
 FR,Filling in optional fields Given the restaurant owner of a restaurant wants to fill in optional fields in the form When the restaurant owner provides restaurant description And menu And type of restaurant And picture of restaurant And mobile phone Then the restaurant owner has filled in optional fields in the form
@@ -926,7 +926,7 @@ FR,Delete a dish Given the administrator is logged in When the administrator del
 FR,Add restaurant information Given the administrator is logged in When the administrator adds restaurant information Then the information should be added to the restaurant
 FR,Delete restaurant information Given the administrator is logged in And information about a restaurant exists When the administrator deletes the information Then the information about the restaurant should be deleted
 FR,Edit restaurant information Given the administrator is logged in And information about a restaurant exists When the administrator edits the information Then the information about the restaurant should be edited
-FR,Edit an existing userâ€™s information Given the administrator is logged in When the administrator edits an existing user Then the user information should be updated
+FR,Edit an existing user's information Given the administrator is logged in When the administrator edits an existing user Then the user information should be updated
 FR,Delete/Inactivate an existing user Given the administrator is logged in When the administrator deletes an existing user Then the user should be deleted
 FR,Add a new restaurant owner Given the administrator is logged in When the administrator creates a new restaurant owner Then the new restaurant owner should be added
 FR,Edit an existing restaurant owner Given the administrator is logged in When the administrator edits an existing restaurant owner Then the restaurant owner information should be updated
@@ -944,41 +944,41 @@ FR,"In this case, user enters his/her username, name, surname, password, mail ad
 FR,"In this case, user enters his/her username or email and his/her password and logs in the system."
 FR,"In this case, user touches log out button, and logs out of the system. The user will not use the system until he/she logs in again."
 FR,"In this case, user is able to search items. User can search items according to their price, their location, their category."
-FR,"In this case, user is able to browse the profiles other users. User can see the other users user names, profile photos, and the usersâ€™ items."
+FR,"In this case, user is able to browse the profiles other users. User can see the other users user names, profile photos, and the users' items."
 FR,"In this case, user is able to browse categories according to his/her wishes. User can also see how many items each category has."
-FR,"In this case, user is able browse items. User can see the itemsâ€™ pictures, prices, and other features."
-FR,"In this case, user can change his/her username, email address, profile picture and password. If the user changes his/her username or password, a notification mail will be sent to the userâ€™s email address. The changes will apply if the user clicks on the link in the email."
+FR,"In this case, user is able browse items. User can see the items' pictures, prices, and other features."
+FR,"In this case, user can change his/her username, email address, profile picture and password. If the user changes his/her username or password, a notification mail will be sent to the user's email address. The changes will apply if the user clicks on the link in the email."
 FR,"In this case, user can buy credits from the system. He/she can use credit card or his/her PayPal account."
-FR,"In this case, user can add the items he/she likes to his cart by touching â€œAdd to the cartâ€ button."
+FR,"In this case, user can add the items he/she likes to his cart by touching Add to the cart button."
 FR,"In this case, the user can buy items he/she has added to cart with credits, if the items are available for buying with credits."
 FR,"In this case, if the item the user wants is available for exchange, the user can request the exchange of items that he/she has with the item he/she wants."
-FR,"In this case, the user can approve the exchange that is offered by another user by clicking â€œApproveâ€ button."
-FR,"In this case, the user can decline the exchange that is offered by another user by clicking â€œDeclineâ€ button."
+FR,"In this case, the user can approve the exchange that is offered by another user by clicking Approve button."
+FR,"In this case, the user can decline the exchange that is offered by another user by clicking Decline button."
 FR,"In this case, the user notifies other user that the shipment of the item has started."
 FR,"In this case, the user can add as many as items he/she wants. The user can also set the price, set the amount, upload pictures of the item and add details of the item."
 FR,"In this case, the user can edit the items that he/she has already put on the system. The user can add/remove pictures, change the price and details of the item."
-FR,"In this case, if the user no longer wishes to sell/exchange the item, he/she can remove the item from the system by touching â€œRemove the itemâ€ button."
-FR,"In this case, if the user no longer wishes to use the system, he/she can click â€œDelete Profileâ€ button. After deleting the profile, the user will no longer be able to use the system with the account details that he entered before."
+FR,"In this case, if the user no longer wishes to sell/exchange the item, he/she can remove the item from the system by touching Remove the item button."
+FR,"In this case, if the user no longer wishes to use the system, he/she can click Delete Profile button. After deleting the profile, the user will no longer be able to use the system with the account details that he entered before."
 FR,"In this case, the user can mark an item as a favorite so that he will be notified if any change is made to the item"
 FR,"In this case, the user can rate and comment about the users whom he traded with."
 FR,The client will send a GET request to the Web API with the question as a URL parameter The client will specify the header Content-Type: application/json in their requests as convention. A valid API query is a single URL parameter containing one sentence that is a question in standard English.
 FR,"The server will reply with either data or an error, see R4.1.3.5. The client will be able to parse the JSON and determine if there was an error. The server will send all API data in JSON response documents with the header Content-Type: application/json. The server will respond with a 200 OK status code if a request has the header Content-Type: application/json and is a valid API query. The server will respond with a 400 Bad Request status code if a request does not specify the header Content-Type: application/json OR is a malformed API query."
-FR,"API responses are defined in JSON, specified by [RFC 7159]. A JSON object will be the root of every API response. The response document will contain at least one of the following top-level members: Data: the documentâ€™s â€œprimary data,â€ in this case, the response to the clientâ€™s query. Errors: an array of error objects stating what went wrong with the clientâ€™s request, should any issues arise. The top-level members specified in R4.1.3.3 will not coexist in the same JSON document. If data is present, errors will be absent and vice versa."
-FR,"This unit will receive a text string from the URL parameter.â€‹ This unit will identify important words in the sentence and replace them with generic representations preceded by an escape character. (example: â€œPISBâ€ becomes â€œ$buildingâ€) â€‹This unit will output the sentence as a string, as described in R4. â€‹This unit will output a map of generic representations to the words they replaced."
+FR,"API responses are defined in JSON, specified by [RFC 7159]. A JSON object will be the root of every API response. The response document will contain at least one of the following top-level members: Data: the document's primary data, in this case, the response to the client's query. Errors: an array of error objects stating what went wrong with the client's request, should any issues arise. The top-level members specified in R4.1.3.3 will not coexist in the same JSON document. If data is present, errors will be absent and vice versa."
+FR,"This unit will receive a text string from the URL parameter. This unit will identify important words in the sentence and replace them with generic representations preceded by an escape character. (example: PISB becomes $building) This unit will output the sentence as a string, as described in R4. This unit will output a map of generic representations to the words they replaced."
 FR,"This unit will have a list of generic words related specifically to potential queries (examples: building, professor)"
-FR,"An error during this process means there was a problem parsing the sentence and creating the generic question. In this case, return a message such as â€œSorry, I didnâ€™t understand that.â€"
+FR,"An error during this process means there was a problem parsing the sentence and creating the generic question. In this case, return a message such as: Sorry, I didn't understand that."
 FR,This unit will receive the output sentence from the Generic Question Construction unit as input (R4.2.1.3).
-FR,This unit will generate a generic answer sentence using the input. (example: â€œWhat time does $building close?â€ becomes â€œ$building closes at $closetime.â€). This unit will output the generic answer sentence described
+FR,This unit will generate a generic answer sentence using the input. (example: What time does $building close? becomes $building closes at $closetime.). 
 FR,"If there was an error here, then the unit failed to create a generic answer given a generic sentence. In this case, simply fallback to the error handling described in R4.4.2.1"
 FR,This unit will receive as input a mapping from the Generic Question Construction unit
 FR,This unit will receive as input a generic answer from the Generic Answer Construction unit
 FR,This unit will query the database for data about the elements in the mapping
 FR,This unit will replace the representations in the generic answer with data.
 FR,"This unit will output the answer to the original question, as described in R4.4.1.3."
-FR,"If querying the database did not provide an answer, the system will say that it does not have an answer and provide appropriate website link where the user could find the answer. Example message, â€œI donâ€™t know when Rush Building closes, but here is the website of the building."
-FR,"If the system could not find appropriate website associated with the question, the system will return a generic error message such as â€œSorry, I couldnâ€™t find an answer to that.â€"
+FR,"If querying the database did not provide an answer, the system will say that it does not have an answer and provide appropriate website link where the user could find the answer. Example message: I don't know when Rush Building closes, but here is the website of the building."
+FR,"If the system could not find appropriate website associated with the question, the system will return a generic error message such as: Sorry, I couldn't find an answer to that."
 FR,A MySQL database will be used to store all information required to answer questions.
-FR,"The database is populated by the information extraction unit before the rest of the system is available, so that all information is readilyaccessible."
+FR,"The database is populated by the information extraction unit before the rest of the system is available, so that all information is readily accessible."
 FR,The database will use the generic representations from R4.2.2.1 as table names or column headers for easier retrieval of data.
 FR,The database will be updated periodically and the API will be unavailable during the update.
 FR,Structural data sources will have their data stored in our database
@@ -987,11 +987,11 @@ FR,"For totally unstructured information, AI libraries will be used to programma
 FR,"Data that is especially hard to extract, for whatever reason, will be manually extracted and added to the database by a developer."
 FR,The GUI will have a textbox that will accept inputs from a keyboard.
 FR,"Text box will originally contain a suggestive text question, to guide the user to the format of an appropriate question. "
-FR,The GUI will have a â€œSendâ€ button which sends text from the textbox to the API when clicked
+FR,The GUI will have a Send button which sends text from the textbox to the API when clicked
 FR,The GUI will have a chat window displaying questions sent to the system and responses from the API.
-FR,"The chat window will contain all questions and answers from the current session, with a scroll bar if all messages canâ€™t fit on the screen."
+FR,"The chat window will contain all questions and answers from the current session, with a scroll bar if all messages can't fit on the screen."
 FR,"If there is a network issue, the chat window will display an error message."
-FR,There will be a designated phone number that users can send texts to. â€‹
+FR,There will be a designated phone number that users can send texts to. 
 FR,"Texts sent to that number will be sent to the API, then the system will reply to the user with the answer as another text message."
 FR,"If a question is not understood by our API, the system will send a text containing an example question after the text with the API response."
 FR,Upon the USB being plugged in the system shall be able to be deployed and operational in less than 1 minute

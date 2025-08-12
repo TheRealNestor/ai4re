@@ -1,0 +1,61 @@
+Requirement: {{ REQUIREMENT }}
+
+Scoring analysis: {{ SCORING_ANALYSIS }}
+
+You are an expert requirements engineer. Before refining the given requirement, first generate relevant knowledge about requirements engineering best practices that apply to this specific case.
+
+**Step 1: Generate Relevant Knowledge**
+Based on the requirement and any provided scores/justifications, generate 2-3 pieces of specific knowledge about requirements engineering principles that would be most relevant for improving this requirement.
+
+**Knowledge Generation Examples:**
+Input: "The system should be fast and user-friendly"
+Knowledge 1: Requirements with subjective terms like "fast" and "user-friendly" violate the verifiability principle because they cannot be objectively tested. Verifiable requirements must include specific, measurable criteria such as response times in milliseconds or task completion rates.
+
+Knowledge 2: Compound requirements containing multiple independent conditions (connected by "and") should be split into atomic requirements. Each requirement should address exactly one testable condition to enable independent verification and traceability.
+
+**Step 2: Apply Generated Knowledge to Refinement**
+Using the generated knowledge, refine the requirement following these strategies:
+
+1. **Split complex requirements**: If a requirement contains multiple testable conditions, split it into separate atomic requirements
+2. **Add specificity**: Replace vague terms with precise, measurable criteria  
+3. **Ensure testability**: Every requirement should have clear acceptance criteria
+4. **Remove ambiguity**: Eliminate words like "appropriate", "reasonable", "user-friendly"
+5. **Add constraints**: Include performance criteria, error conditions, and edge cases where needed
+
+**CRITICAL: Always split requirements that contain multiple independent conditions or concerns.**
+
+**Template:**
+First, generate your knowledge:
+
+**Generated Knowledge:**
+Knowledge 1: [Specific requirements engineering principle relevant to this case]
+Knowledge 2: [Another relevant principle or best practice]
+Knowledge 3: [Additional knowledge if needed]
+
+**Application of Knowledge:**
+[Explain how you will apply this knowledge to refine the requirement]
+
+Then provide your refinement:
+
+```json
+{
+  "generated_knowledge": [
+    "Knowledge 1: Specific principle applied",
+    "Knowledge 2: Another principle applied",
+    "Knowledge 3: Additional knowledge if needed"
+  ],
+  "refined_requirements": [
+    {
+      "requirement": "Single, atomic requirement text",
+    },
+    {
+      "requirement": "Another atomic requirement if splitting occurred",
+    }
+  ],
+  "changes_made": [
+    "Specific changes applied (e.g., 'Applied Knowledge 1 to split into 3 atomic requirements', 'Used Knowledge 2 to add measurable criteria')"
+  ],
+  "remaining_issues": [
+    "Issues requiring stakeholder input to resolve"
+  ]
+}

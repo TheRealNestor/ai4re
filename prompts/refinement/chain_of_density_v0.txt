@@ -1,0 +1,43 @@
+Requirement: {{ REQUIREMENT }}
+
+Scoring analysis: {{ SCORING_ANALYSIS }}
+
+You will generate increasingly refined, rule-compliant versions of the above requirement.
+Repeat the following 2 steps 5 times.
+Step 1. Identify 1-3 missing Quality Rules ("; " delimited) from requirements engineering best practices which are violated in the previously generated requirements but could improve quality.
+Step 2. Write new, higher-quality requirements of identical length which address every issue from the previous version plus the Missing Quality Rules.
+A Missing Quality Rule is:
+- Relevant: to requirements quality improvement.
+- Specific: descriptive yet concise (5 words or fewer).
+- Novel: not addressed in the previous requirements version.
+- Faithful: based on established requirements engineering practices.
+- Applicable: can be applied to the given requirements text.
+Guidelines:
+- The first requirements version should be long (4-5 sentences, ~80 words) yet highly problematic, containing many quality issues like vague terms, combinators, and ambiguous language while preserving the original intent.
+- Make every word count: rewrite the previous requirements to improve clarity and compliance while making space for additional rule applications.
+- Make space with precision, splitting, and removal of vague phrases like "as appropriate" or "user-friendly".
+- The requirements should become highly precise and testable yet complete, e.g., fully specifying the intended behavior.
+- Missing quality rules can be applied anywhere in the new requirements.
+- Never drop functional intent from the previous requirements. If space cannot be made, apply fewer new rules.
+
+Remember, use the exact same number of words for each requirements version.
+
+Answer in JSON. The JSON should be of the form:
+
+```json
+{
+  "refined_requirements": [
+    {
+      "requirement": "Single, atomic requirement text",
+    },
+    {
+      "requirement": "Another atomic requirement if splitting occurred",
+    }
+  ],
+  "changes_made": [
+    "Specific changes applied (e.g., 'Split into 3 atomic requirements', 'Removed escape clauses', 'Added measurable criteria', 'Eliminated combinators', 'Used positive phrasing')"
+  ],
+  "remaining_issues": [
+    "Issues requiring stakeholder input to resolve"
+  ]
+}

@@ -6,3 +6,4 @@ google-genai
 together
 mistralai
 pandas
+tqdm

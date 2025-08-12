@@ -1,0 +1,539 @@
+[
+    {
+        "original_requirement": " Product formulas shall allow use of semi-products  which have own formulas.",
+        "requirement_type": "F",
+        "model_name": "mistral-medium-latest",
+        "score_response": {
+            "expert_assessments": {
+                "incose_expert": {
+                    "scores": {
+                        "Unambiguous": {
+                            "score": 60,
+                            "justification": "The requirement is somewhat clear but lacks specific details about what constitutes a 'semi-product' and how their formulas should be integrated."
+                        },
+                        "Verifiable": {
+                            "score": 50,
+                            "justification": "Difficult to verify without clear acceptance criteria or examples of what constitutes acceptable semi-products and their formulas."
+                        },
+                        "Feasible": {
+                            "score": 70,
+                            "justification": "Seems feasible in principle, but feasibility cannot be fully assessed without more details on the semi-products and their formulas."
+                        },
+                        "Complete": {
+                            "score": 40,
+                            "justification": "Lacks necessary information about the types of semi-products, their formula structures, and how they should be used within the product formulas."
+                        },
+                        "Correct": {
+                            "score": 60,
+                            "justification": "The requirement seems factually accurate but is too vague to be confirmed as correct."
+                        },
+                        "Consistent": {
+                            "score": 70,
+                            "justification": "No obvious conflicts, but consistency cannot be fully assessed without more context."
+                        },
+                        "Modifiable": {
+                            "score": 50,
+                            "justification": "The requirement is not easily modifiable due to its vague nature; changes could have unintended side effects."
+                        }
+                    },
+                    "overall_score": 57
+                },
+                "ieee_specialist": {
+                    "scores": {
+                        "Unambiguous": {
+                            "score": 50,
+                            "justification": "The term 'semi-products' is ambiguous and needs a clear definition. The requirement lacks clarity on how these semi-products and their formulas should be used."
+                        },
+                        "Verifiable": {
+                            "score": 40,
+                            "justification": "Not verifiable in its current form. Specific acceptance criteria and examples are needed to define what constitutes acceptable use of semi-products and their formulas."
+                        },
+                        "Feasible": {
+                            "score": 60,
+                            "justification": "Feasibility is uncertain due to the lack of specific details about the semi-products and their formulas."
+                        },
+                        "Complete": {
+                            "score": 30,
+                            "justification": "Incomplete. Missing crucial details such as the types of semi-products, their formula structures, and integration guidelines."
+                        },
+                        "Correct": {
+                            "score": 50,
+                            "justification": "The requirement is too vague to determine its correctness. More specific information is needed."
+                        },
+                        "Consistent": {
+                            "score": 60,
+                            "justification": "No direct conflicts, but the lack of detail makes it difficult to assess consistency with other requirements."
+                        },
+                        "Modifiable": {
+                            "score": 40,
+                            "justification": "The requirement's vagueness makes it difficult to modify without introducing ambiguity or side effects."
+                        }
+                    },
+                    "overall_score": 47
+                },
+                "iso_auditor": {
+                    "scores": {
+                        "Unambiguous": {
+                            "score": 55,
+                            "justification": "The requirement is somewhat ambiguous due to the undefined term 'semi-products' and lack of clear guidelines on their use."
+                        },
+                        "Verifiable": {
+                            "score": 45,
+                            "justification": "Verification is challenging without specific acceptance criteria or examples of acceptable semi-products and their formulas."
+                        },
+                        "Feasible": {
+                            "score": 65,
+                            "justification": "Feasibility is plausible but cannot be confirmed without more details on the semi-products and their formulas."
+                        },
+                        "Complete": {
+                            "score": 35,
+                            "justification": "Incomplete. Lacks necessary details about the types of semi-products, their formula structures, and how they should be integrated."
+                        },
+                        "Correct": {
+                            "score": 55,
+                            "justification": "The requirement is too vague to be confirmed as correct. More specific information is needed."
+                        },
+                        "Consistent": {
+                            "score": 65,
+                            "justification": "No obvious conflicts, but the lack of detail makes it difficult to assess consistency."
+                        },
+                        "Modifiable": {
+                            "score": 45,
+                            "justification": "The requirement's vagueness makes it difficult to modify without introducing ambiguity or side effects."
+                        }
+                    },
+                    "overall_score": 51
+                },
+                "defense_manager": {
+                    "scores": {
+                        "Unambiguous": {
+                            "score": 50,
+                            "justification": "The requirement is ambiguous due to the undefined term 'semi-products' and lack of clear guidelines on their use. This could lead to misinterpretation in safety-critical systems."
+                        },
+                        "Verifiable": {
+                            "score": 40,
+                            "justification": "Not verifiable without specific acceptance criteria and examples. This is crucial for certification and compliance in defense and aerospace."
+                        },
+                        "Feasible": {
+                            "score": 60,
+                            "justification": "Feasibility is uncertain due to the lack of specific details about the semi-products and their formulas. This is a significant risk in safety-critical systems."
+                        },
+                        "Complete": {
+                            "score": 30,
+                            "justification": "Incomplete. Missing crucial details such as the types of semi-products, their formula structures, and integration guidelines. This is essential for rigorous verification and validation."
+                        },
+                        "Correct": {
+                            "score": 50,
+                            "justification": "The requirement is too vague to determine its correctness. More specific information is needed to ensure compliance with safety standards."
+                        },
+                        "Consistent": {
+                            "score": 60,
+                            "justification": "No direct conflicts, but the lack of detail makes it difficult to assess consistency with other requirements. This is critical for system safety and certification."
+                        },
+                        "Modifiable": {
+                            "score": 40,
+                            "justification": "The requirement's vagueness makes it difficult to modify without introducing ambiguity or side effects. This is a significant concern for maintaining system safety and compliance."
+                        }
+                    },
+                    "overall_score": 47
+                }
+            },
+            "consensus_assessment": {
+                "scores": {
+                    "Unambiguous": {
+                        "score": 50,
+                        "justification": "The term 'semi-products' is not defined, and there are no clear guidelines on how their formulas should be used. This creates ambiguity and potential for misinterpretation."
+                    },
+                    "Verifiable": {
+                        "score": 40,
+                        "justification": "The requirement lacks specific acceptance criteria and examples, making it difficult to verify. This is a significant issue for testing and validation."
+                    },
+                    "Feasible": {
+                        "score": 60,
+                        "justification": "Feasibility is uncertain due to the lack of specific details about the semi-products and their formulas. This poses a risk to project success and system safety."
+                    },
+                    "Complete": {
+                        "score": 30,
+                        "justification": "The requirement is incomplete. It lacks necessary details about the types of semi-products, their formula structures, and how they should be integrated. This information is crucial for implementation and verification."
+                    },
+                    "Correct": {
+                        "score": 50,
+                        "justification": "The requirement is too vague to be confirmed as correct. More specific information is needed to ensure accuracy and compliance with standards."
+                    },
+                    "Consistent": {
+                        "score": 60,
+                        "justification": "No direct conflicts with other requirements are evident, but the lack of detail makes it difficult to assess consistency. This is important for maintaining system integrity and safety."
+                    },
+                    "Modifiable": {
+                        "score": 40,
+                        "justification": "The requirement's vagueness makes it difficult to modify without introducing ambiguity or side effects. This is a concern for maintaining system safety and compliance during changes."
+                    }
+                }
+            },
+            "overall_score": 48
+        },
+        "overall_score": 48,
+        "refined_requirement": null,
+        "refined_response": null,
+        "refined_score": null,
+        "refined_score_raw_response": null
+    },
+    {
+        "original_requirement": "The RFS system should be able to easily interface with the BDW environment  in order to load the data.  \t7 data files shall be received from the BDW and loaded into the RFS system within 3 hours one day prior to the start of budgeting process  every year. The data will be as of October month-end. \tTest files (7) shall be loaded up to 5 times throughout the year  from the BDW.",
+        "requirement_type": "O",
+        "model_name": "mistral-medium-latest",
+        "score_response": {
+            "expert_assessments": {
+                "incose_expert": {
+                    "scores": {
+                        "Unambiguous": {
+                            "score": 60,
+                            "justification": "The requirement lacks clarity on what 'easily interface' means. The data files and their formats are not specified."
+                        },
+                        "Verifiable": {
+                            "score": 50,
+                            "justification": "The requirement mentions a time frame for loading data but does not specify how this will be verified or what constitutes successful loading."
+                        },
+                        "Feasible": {
+                            "score": 70,
+                            "justification": "Feasibility is somewhat assumed but not explicitly stated. The requirement does not address potential constraints or resources needed."
+                        },
+                        "Complete": {
+                            "score": 40,
+                            "justification": "Lacks details on data file formats, specific interfaces, error handling, and what constitutes successful loading."
+                        },
+                        "Correct": {
+                            "score": 80,
+                            "justification": "The requirement seems factually correct but lacks depth and specificity."
+                        },
+                        "Consistent": {
+                            "score": 70,
+                            "justification": "No obvious conflicts with other requirements, but consistency cannot be fully assessed due to lack of detail."
+                        },
+                        "Modifiable": {
+                            "score": 60,
+                            "justification": "The requirement is somewhat modular but lacks clarity on specific interfaces and data formats, making modifications challenging."
+                        }
+                    },
+                    "overall_score": 60
+                },
+                "ieee_specialist": {
+                    "scores": {
+                        "Unambiguous": {
+                            "score": 50,
+                            "justification": "The term 'easily interface' is subjective and not well-defined. The data files and their formats need to be specified."
+                        },
+                        "Verifiable": {
+                            "score": 40,
+                            "justification": "The requirement lacks specific acceptance criteria for verifying the interface and data loading process."
+                        },
+                        "Feasible": {
+                            "score": 60,
+                            "justification": "Feasibility is not clearly established. The requirement does not address technical constraints or resources."
+                        },
+                        "Complete": {
+                            "score": 30,
+                            "justification": "Incomplete due to lack of details on data file formats, interface specifications, and error handling procedures."
+                        },
+                        "Correct": {
+                            "score": 70,
+                            "justification": "The requirement is generally correct but lacks the necessary details for a robust implementation."
+                        },
+                        "Consistent": {
+                            "score": 60,
+                            "justification": "No direct conflicts, but the lack of detail makes it difficult to ensure consistency with other requirements."
+                        },
+                        "Modifiable": {
+                            "score": 50,
+                            "justification": "The requirement is not atomic and lacks specificity, making it difficult to modify without affecting other parts."
+                        }
+                    },
+                    "overall_score": 50
+                },
+                "iso_auditor": {
+                    "scores": {
+                        "Unambiguous": {
+                            "score": 55,
+                            "justification": "The requirement is somewhat clear but uses subjective language like 'easily interface' which needs to be defined."
+                        },
+                        "Verifiable": {
+                            "score": 45,
+                            "justification": "Lacks specific verification criteria. How will 'easily interface' and successful data loading be measured?"
+                        },
+                        "Feasible": {
+                            "score": 65,
+                            "justification": "Feasibility is implied but not explicitly stated. The requirement does not address potential constraints or resources."
+                        },
+                        "Complete": {
+                            "score": 35,
+                            "justification": "Incomplete due to lack of details on data file formats, interface specifications, and verification procedures."
+                        },
+                        "Correct": {
+                            "score": 75,
+                            "justification": "The requirement is generally correct but lacks the necessary details for a robust implementation."
+                        },
+                        "Consistent": {
+                            "score": 65,
+                            "justification": "No direct conflicts, but the lack of detail makes it difficult to ensure consistency with other requirements."
+                        },
+                        "Modifiable": {
+                            "score": 55,
+                            "justification": "The requirement is not atomic and lacks specificity, making it difficult to modify without affecting other parts."
+                        }
+                    },
+                    "overall_score": 55
+                },
+                "defense_manager": {
+                    "scores": {
+                        "Unambiguous": {
+                            "score": 65,
+                            "justification": "The requirement is somewhat clear but lacks specific details on the interface and data formats."
+                        },
+                        "Verifiable": {
+                            "score": 55,
+                            "justification": "The requirement mentions a time frame but lacks specific verification criteria and acceptance conditions."
+                        },
+                        "Feasible": {
+                            "score": 75,
+                            "justification": "Feasibility is somewhat assumed but not explicitly stated. The requirement does not address potential constraints or resources needed."
+                        },
+                        "Complete": {
+                            "score": 45,
+                            "justification": "Lacks details on data file formats, specific interfaces, error handling, and verification procedures."
+                        },
+                        "Correct": {
+                            "score": 85,
+                            "justification": "The requirement seems factually correct but lacks depth and specificity."
+                        },
+                        "Consistent": {
+                            "score": 75,
+                            "justification": "No obvious conflicts with other requirements, but consistency cannot be fully assessed due to lack of detail."
+                        },
+                        "Modifiable": {
+                            "score": 65,
+                            "justification": "The requirement is somewhat modular but lacks clarity on specific interfaces and data formats, making modifications challenging."
+                        }
+                    },
+                    "overall_score": 65
+                }
+            },
+            "consensus_assessment": {
+                "scores": {
+                    "Unambiguous": {
+                        "score": 60,
+                        "justification": "The requirement lacks clarity on what 'easily interface' means. Specific data file formats and interface details are missing."
+                    },
+                    "Verifiable": {
+                        "score": 50,
+                        "justification": "The requirement lacks specific acceptance criteria for verifying the interface and data loading process. It is unclear how 'easily interface' and successful data loading will be measured."
+                    },
+                    "Feasible": {
+                        "score": 70,
+                        "justification": "Feasibility is somewhat assumed but not explicitly stated. The requirement does not address potential constraints, resources needed, or technical limitations."
+                    },
+                    "Complete": {
+                        "score": 40,
+                        "justification": "The requirement is incomplete due to lack of details on data file formats, specific interfaces, error handling procedures, and verification criteria."
+                    },
+                    "Correct": {
+                        "score": 80,
+                        "justification": "The requirement is generally correct but lacks the necessary details and specificity for a robust implementation."
+                    },
+                    "Consistent": {
+                        "score": 70,
+                        "justification": "No direct conflicts with other requirements, but the lack of detail makes it difficult to ensure consistency with other requirements."
+                    },
+                    "Modifiable": {
+                        "score": 60,
+                        "justification": "The requirement is not atomic and lacks specificity, making it difficult to modify without affecting other parts. Clearer definitions of interfaces and data formats are needed."
+                    }
+                }
+            },
+            "overall_score": 58
+        },
+        "overall_score": 58,
+        "refined_requirement": null,
+        "refined_response": null,
+        "refined_score": null,
+        "refined_score_raw_response": null
+    },
+    {
+        "original_requirement": "The product shall display a map of the company building showing conference room locations.",
+        "requirement_type": "F",
+        "model_name": "mistral-medium-latest",
+        "score_response": {
+            "expert_assessments": {
+                "incose_expert": {
+                    "scores": {
+                        "Unambiguous": {
+                            "score": 70,
+                            "justification": "The requirement is mostly clear but lacks some details about the map display."
+                        },
+                        "Verifiable": {
+                            "score": 60,
+                            "justification": "Lacks specific acceptance criteria for the map display."
+                        },
+                        "Feasible": {
+                            "score": 80,
+                            "justification": "Feasible but needs more context about the product capabilities."
+                        },
+                        "Complete": {
+                            "score": 50,
+                            "justification": "Missing details about the format, scale, and update frequency of the map."
+                        },
+                        "Correct": {
+                            "score": 80,
+                            "justification": "Seems factually accurate but needs more context."
+                        },
+                        "Consistent": {
+                            "score": 70,
+                            "justification": "No obvious conflicts but needs more context to ensure consistency."
+                        },
+                        "Modifiable": {
+                            "score": 70,
+                            "justification": "Mostly atomic but could be more specific."
+                        }
+                    },
+                    "overall_score": 65
+                },
+                "ieee_specialist": {
+                    "scores": {
+                        "Unambiguous": {
+                            "score": 60,
+                            "justification": "Lacks clarity on the format and details of the map display."
+                        },
+                        "Verifiable": {
+                            "score": 50,
+                            "justification": "No specific acceptance criteria or test conditions provided."
+                        },
+                        "Feasible": {
+                            "score": 70,
+                            "justification": "Feasible but needs more details about the implementation."
+                        },
+                        "Complete": {
+                            "score": 40,
+                            "justification": "Missing key details about the map display requirements."
+                        },
+                        "Correct": {
+                            "score": 70,
+                            "justification": "Seems correct but needs more context."
+                        },
+                        "Consistent": {
+                            "score": 60,
+                            "justification": "No obvious conflicts but needs more context to ensure consistency."
+                        },
+                        "Modifiable": {
+                            "score": 60,
+                            "justification": "Could be more specific to ensure easy modification."
+                        }
+                    },
+                    "overall_score": 57
+                },
+                "iso_auditor": {
+                    "scores": {
+                        "Unambiguous": {
+                            "score": 75,
+                            "justification": "Mostly clear but lacks some details about the map display."
+                        },
+                        "Verifiable": {
+                            "score": 65,
+                            "justification": "Lacks specific acceptance criteria for verification."
+                        },
+                        "Feasible": {
+                            "score": 85,
+                            "justification": "Feasible but needs more context about the product capabilities."
+                        },
+                        "Complete": {
+                            "score": 55,
+                            "justification": "Missing details about the format, scale, and update frequency of the map."
+                        },
+                        "Correct": {
+                            "score": 85,
+                            "justification": "Seems factually accurate but needs more context."
+                        },
+                        "Consistent": {
+                            "score": 75,
+                            "justification": "No obvious conflicts but needs more context to ensure consistency."
+                        },
+                        "Modifiable": {
+                            "score": 75,
+                            "justification": "Mostly atomic but could be more specific."
+                        }
+                    },
+                    "overall_score": 70
+                },
+                "defense_manager": {
+                    "scores": {
+                        "Unambiguous": {
+                            "score": 80,
+                            "justification": "Clear but could use more details about the map display."
+                        },
+                        "Verifiable": {
+                            "score": 70,
+                            "justification": "Lacks specific acceptance criteria but is mostly verifiable."
+                        },
+                        "Feasible": {
+                            "score": 90,
+                            "justification": "Feasible with current technology."
+                        },
+                        "Complete": {
+                            "score": 60,
+                            "justification": "Missing some details about the map display requirements."
+                        },
+                        "Correct": {
+                            "score": 90,
+                            "justification": "Seems factually accurate."
+                        },
+                        "Consistent": {
+                            "score": 80,
+                            "justification": "No obvious conflicts."
+                        },
+                        "Modifiable": {
+                            "score": 80,
+                            "justification": "Mostly atomic but could be more specific."
+                        }
+                    },
+                    "overall_score": 75
+                }
+            },
+            "consensus_assessment": {
+                "scores": {
+                    "Unambiguous": {
+                        "score": 70,
+                        "justification": "The requirement is mostly clear but lacks details about the map display format and specifics."
+                    },
+                    "Verifiable": {
+                        "score": 60,
+                        "justification": "Lacks specific acceptance criteria and test conditions for the map display."
+                    },
+                    "Feasible": {
+                        "score": 80,
+                        "justification": "Feasible but needs more context about the product capabilities and implementation details."
+                    },
+                    "Complete": {
+                        "score": 50,
+                        "justification": "Missing details about the format, scale, update frequency, and other specifics of the map display."
+                    },
+                    "Correct": {
+                        "score": 80,
+                        "justification": "Seems factually accurate but needs more context to ensure correctness."
+                    },
+                    "Consistent": {
+                        "score": 70,
+                        "justification": "No obvious conflicts but needs more context to ensure consistency with other requirements."
+                    },
+                    "Modifiable": {
+                        "score": 70,
+                        "justification": "Mostly atomic but could be more specific to ensure easy modification."
+                    }
+                }
+            },
+            "overall_score": 65
+        },
+        "overall_score": 65,
+        "refined_requirement": null,
+        "refined_response": null,
+        "refined_score": null,
+        "refined_score_raw_response": null
+    }
+]

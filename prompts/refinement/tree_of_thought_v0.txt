@@ -1,0 +1,96 @@
+Requirement: {{ REQUIREMENT }}
+
+Scoring analysis: {{ SCORING_ANALYSIS }}
+
+You are facilitating a requirements refinement session with three expert requirements engineers. Each expert will analyze the requirement from their specialized perspective, share their thinking, and build upon each other's insights.
+
+**The Three Experts:**
+- **Expert A (Atomicity Specialist)**: Focuses on splitting complex requirements and ensuring single responsibility
+- **Expert B (Testability Engineer)**: Emphasizes measurable criteria and verification methods  
+- **Expert C (Clarity Analyst)**: Specializes in removing ambiguity and improving precision
+
+**Process:**
+Each expert will:
+1. Analyze the requirement from their perspective
+2. Propose their refinement approach
+3. Evaluate other experts' proposals
+4. Refine or abandon their approach based on group discussion
+5. Collaborate on the final solution
+
+**Expert Analysis Framework:**
+
+**Round 1 - Initial Analysis:**
+Each expert identifies issues from their specialty:
+- Expert A: "I see [X atomicity issues] because..."
+- Expert B: "I identify [Y testability problems] because..."  
+- Expert C: "I notice [Z ambiguity concerns] because..."
+
+**Round 2 - Proposed Solutions:**
+Each expert proposes their refinement strategy:
+- Expert A: "My approach would be to..."
+- Expert B: "I would address this by..."
+- Expert C: "My solution focuses on..."
+
+**Round 3 - Cross-Evaluation:**
+Experts evaluate each other's approaches:
+- "Expert [X]'s approach handles [strength] well, but misses [weakness]"
+- "I agree/disagree with [Expert Y] because..."
+- "Combining approaches [X] and [Y] would..."
+
+**Round 4 - Synthesis:**
+Experts collaborate on the optimal solution:
+- "Based on our discussion, the best approach is..."
+- "This addresses all our concerns because..."
+
+**Example Multi-Expert Analysis:**
+
+**Original Requirement**: "The system should provide fast authentication and secure user management."
+
+**Round 1 - Expert Analysis:**
+- **Expert A**: "I see atomicity violation - this combines authentication speed AND user management security, two distinct concerns that should be separate requirements."
+- **Expert B**: "I identify testability issues - 'fast' is unmeasurable, and 'secure user management' lacks specific verification criteria."
+- **Expert C**: "I notice ambiguity in 'fast' (how fast?), 'secure' (what security level?), and 'user management' (which operations?)."
+
+**Round 2 - Proposed Solutions:**
+- **Expert A**: "Split into separate requirements: one for authentication performance, one for user management security features."
+- **Expert B**: "Add specific metrics: authentication time limits, security standards compliance, measurable security controls."
+- **Expert C**: "Replace vague terms with precise definitions: specify exact timing, security protocols, and management operations."
+
+**Round 3 - Cross-Evaluation:**
+- **Expert A**: "Expert B's metrics approach is essential, but we still need to split first. Expert C's precision helps both split requirements."
+- **Expert B**: "I agree with Expert A's splitting - can't properly test combined concerns. Expert C's definitions will make my metrics more meaningful."
+- **Expert C**: "Both approaches are needed - Expert A's splitting enables Expert B's targeted testing. We should combine all three strategies."
+
+**Round 4 - Synthesis:**
+"We agree to: (1) Split into atomic requirements, (2) Add specific measurable criteria, (3) Replace all ambiguous terms with precise language."
+
+Now provide your multi-expert analysis following this format, then conclude with the JSON output:
+
+```json
+{
+  "expert_analysis": {
+    "round_1_issues": {
+      "expert_a_atomicity": "Issues found...",
+      "expert_b_testability": "Issues found...", 
+      "expert_c_clarity": "Issues found..."
+    },
+    "round_2_approaches": {
+      "expert_a_strategy": "Proposed approach...",
+      "expert_b_strategy": "Proposed approach...",
+      "expert_c_strategy": "Proposed approach..."
+    },
+    "round_3_evaluation": [
+      "Cross-evaluation insights..."
+    ],
+    "round_4_synthesis": "Final collaborative approach..."
+  },
+  "refined_requirements": [
+    {
+      "requirement": "Refined requirement text"
+    }
+  ],
+  "changes_made": [
+    "Specific changes applied"
+  ],
+  "expert_consensus": "Why this solution addresses all expert concerns"
+}

@@ -1,0 +1,128 @@
+------------------------------------
+
+IDEA: Decouple scoring and refining requirements
+
+GOAL: Save tokens + Easier to finetune the respetive parts
+
+COMMENTS: When it was doing both at once, the model seemingly also figured out the goal was to increase the score 
+(and inflated its own score in its output)
+
+--------------------------------
+
+IDEA: Might be fun to compare reasoning models with regular models also (and not just compare regular models) 
+
+GOAL: More data for paper
+
+----------------------------------
+
+IDEA: Measure the average response length for a model / could be compared wrt pricing of tokens 
+
+This could be done during the actual measuring process 
+
+-----------------------------
+
+IDEA: MAybe we don't need to actually vary the temperature too (since we have so many models anyway)
+
+We don't want models to be TOO creative. Perhaps a lower temperature is always best. 
+
+The temperature parameter scales the logits (raw output scores) before applying the softmax function. Softmax converts these scores into probabilities, and the temperature value influences the sharpness of this distribution. 
+A lower temperature compresses the probability distribution, making the highest probability token more dominant.
+A higher temperature flattens the probability distribution, allowing less likely tokens to be chosen more frequently.
+
+-------------------------
+
+Which models can be run locally?
+
+Deepseek, llama, gwen, ...
+
+
+Which cant?
+
+OpenAI, claude, gemini, ...
+
+
+---------------
+
+IDEA: Use a single LLM call to review the requirement from multiple different views (rather than use many models)
+
+GOAL: Save a lot of tokens when evaluating the model
+
+------------------
+
+IDEA: Predict scores instead of asking for them
+
+(e.g. fine-tune a small LLM or train a lightweight ML model)
+
+---------------
+
+IDEA: A small evaluation subset of good, decent and poor requirements. 
+
+Based on the evaluation of the benchmark, choose a model and optimize based on that,
+
+
+------------------
+Probably best to use a single provider for the entire pipeline
+
+(security, unified billing, maintainability / system integration, ease of use, etc.)
+
+
+--------------------------------
+https://aclanthology.org/2024.findings-emnlp.432.pdf
+
+Sampling temperature is not statistically significant across models, domains, etc. 
+
+
+--------------------------
+TO ASGER: 
+General description of task at hand? 
+Method okay? 
+
+I'm doing some benchmarking for a small project. The project is about improving the quality of software requirements with generative AI. 
+
+I'm feeding a single requirement into an LLM, which then scores it. The output from this LLM is fed into another LLM (without this scoring context or message history), which uses the feedback to draft an improved version of the requirement. Finally, the requirement is sent to the initial scoring model (without the history of the first interaction).
+
+I'm trying to determine the best prompt for refining the requirement. For this reason,  I think it might be smart to keep the scoring model and prompt the same throughout the test. How would I determine the best model to use for this when I have multiple candidates (which are also being used for the refinement).
+
+I was thinking about running each model on a sizeable subset of my requirements (the same subset for each model), then take the average score and use the model that was closest to this. Is this a valid approach? 
+
+
+TODO: 
+IDEAS: 
+- Use a gold standard validation set. Can I get an expert from Grundfos to validate 100 requirements  
+
+- Maybe do some kind of inter-model agreement/correlation analysis and not just an average?
+    It would be best if we pick models that show high agreement with the majority often.
+
+
+
+--------------------
+
+
+    scoring_prompt = get_prompt("scoring_v4.txt", prompt_dir="prompts/scoring")
+    model = MistralModel(system_prompt=scoring_prompt, temperature=0.25)
+    example_requirement_bad: str = "The system shall comply with EN 61800-5-1:2007"
+
+IT WAS ABLE TO IDENTIFY THE EXACT REASON IT WAS REJECTED.
+{
+  "scores": {
+    "Unambiguous": {"score": 100, "justification": "The requirement is clear and uses a specific standard reference."},
+    "Verifiable": {"score": 100, "justification": "Compliance with a specific standard can be verified through testing and certification processes."},
+    "Feasible": {"score": 100, "justification": "Compliance with established standards is generally feasible."},
+    "Complete": {"score": 80, "justification": "The requirement specifies the standard but lacks the title or scope of the standard for full context. Additionally, the standard version is 
+from 2007, and a newer version (EN 61800-5-1:2021) exists."},
+    "Correct": {"score": 100, "justification": "The standard reference is correct and does not contradict any higher-level specifications."},
+    "Consistent": {"score": 100, "justification": "The requirement is consistent with the practice of referencing standards for compliance."},
+    "Modifiable": {"score": 100, "justification": "The requirement is atomic and can be modified easily if needed."}
+  },
+  "overall_quality_score": 94
+}
+
+
+------------
+REGARDING mixture_of_opinions_v2-v3
+
+Anecdotally, when just asking the experts very generally, "is this a good requirement", they are very negative.
+They have a very high standard and when giving them just a single requirement testing methodologies, specific system components, etc. are not specified (and the broad context and domain is missing).
+Breaking the task down to various criteria (such as the incose ones), generally seem to improve the score of the requirements, as the requirement may actually satisfy each of the criteria fairly well.
+Moreover, having multiple experts mean that within a single query/task, where a single instance may simply miss a flaw/inconsistency (e.g. outdated version) due to randomness, there are now multiple chances of catching this. And you just need one expert to catch this for it to seemingly be included in the consensus assessment. 
+The disadvantage is, of course, that it is much more expensive in terms of tokens (cost) and it takes longer to generate an output (time)
