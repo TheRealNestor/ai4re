@@ -126,3 +126,155 @@ They have a very high standard and when giving them just a single requirement te
 Breaking the task down to various criteria (such as the incose ones), generally seem to improve the score of the requirements, as the requirement may actually satisfy each of the criteria fairly well.
 Moreover, having multiple experts mean that within a single query/task, where a single instance may simply miss a flaw/inconsistency (e.g. outdated version) due to randomness, there are now multiple chances of catching this. And you just need one expert to catch this for it to seemingly be included in the consensus assessment. 
 The disadvantage is, of course, that it is much more expensive in terms of tokens (cost) and it takes longer to generate an output (time)
+
+
+--------------
+
+These could be done via together AI API? Would that be simpler?
+
+What about grok?
+
+Deepseek R1 + V3
+Qwen3
+LLama 4 maverick
+
+---------------------------------------------
+THIS PAPER: Confirmation Bias Emerges from an Approximation to Bayesian Reasoning
+
+The authors introduce the BIASR model (Bayesian Updating with an Independence Approximation and Source Reliability). In it:
+
+People update their beliefs about both a claim (the “central hypothesis”) and how trustworthy the source is at the same time.
+
+This creates dependencies between those beliefs.
+
+Fully tracking those dependencies is memory-intensive and unrealistic for humans, so people approximate by forgetting some of them — assuming beliefs are independent when they aren’t.
+
+When new information is processed sequentially, this approximation introduces small biases that accumulate over time.
+
+Simulations show this process can produce five well-known forms of confirmation bias without assuming people are irrational
+
+1. Why the feedback loop goes out of control
+When a single LLM both grades and rewrites in the same session/context:
+
+Beliefs get correlated:
+The “belief” about the quality of the requirement (its score) and the “belief” about what good requirements look like (the rewrite style) get linked in the LLM’s internal state.
+
+Independence approximation happens:
+In the paper, humans forget the exact reasons why beliefs are linked and treat them as independent later.
+For an LLM, it’s similar — after rewriting, it doesn’t fully “reinspect” the requirement from scratch; instead, it leans on its earlier grading judgment.
+
+Reinforcement spiral:
+Once the model starts thinking its own style is “good,” any rewrite in that style tends to get a high score — even if it’s trivial or meaningless (e.g., synonym swaps). Over multiple iterations, the score inflation gets worse, because the grading step is now biased toward confirming earlier choices.
+
+This is directly analogous to the paper’s biased assimilation + belief perseverance: the agent increasingly overvalues confirmatory evidence (own style) and resists contrary evidence (alternative styles).
+
+2. Why separating LLMs fixes it
+When you use three independent LLM calls with no shared session context:
+
+The grader that gives the initial score has no memory of previous rewrites.
+
+The rewriter only sees the score (not the original grader’s reasoning or style), so it can’t directly “inherit” the grader’s biases.
+
+The final grader sees only the new text and grades it fresh — no carryover from the original grading or rewrite.
+
+That’s like forcing each update to be based on an independent belief distribution rather than reusing a biased one.
+In Bayesian terms, you’re not letting the joint “belief in the requirement quality” and “belief in the source’s reliability” accumulate correlation over time — so there’s no path-dependent bias buildup.
+
+3. The bottom line
+Your single-LLM feedback loop is a closed, self-reinforcing belief network — exactly the setup that produces confirmation bias in the BIASR model.
+Your multi-LLM setup is closer to fresh Bayesian updates with no memory of past correlations, so scores stay stable and less inflated.
+
+
+Using a single LLM to both grade and rewrite a requirement in the same feedback loop can quickly lead to score inflation because the model’s assessment of quality and its preferred rewrite style become correlated, and it reuses this biased internal state in subsequent iterations. Without fully re-evaluating the text from scratch, the LLM tends to reward changes that match its own earlier decisions—even if the changes are superficial—creating a self-reinforcing cycle where scores rise regardless of actual improvement. This mirrors the confirmation bias mechanism described in the BIASR model, where forgetting the dependence between beliefs causes agents to overvalue confirmatory information and discount alternatives, leading to progressively skewed evaluations over time.
+
+-------------------------------------------------------------
+PAPER: LLMs Get Lost In Multi-Turn Conversation
+
+The paper LLMs GET LOST IN MULTI-TURN CONVERSATION took single-prompt instructions and broke them into shards to see how LLMs would perform when given information over multiple messages, rather than all at once. In some cases, even on flagship models like Gemini 2.5 Pro, performance dropped by 40%.
+
+The TL;DR:
+
+39% performance drop on average when tasks unfold over multiple messages versus a single, fully specified prompt upfront
+Unreliability more than doubles
+Reasoning models performed just as poorly as non-reasoning models
+
+Single-Turn benchmarks miss conversational complexity
+Most popular benchmarks hand the model a fully specified task up front, in a single prompt. In that setup, the model sees every requirement in one go and then responds.
+
+But real conversations and AI applications often don’t work that way. Usually users reveal information piece by piece and work with the model to clarify certain instructions. Think about ChatGPT, deep research, etc.
+
+By not accounting for these types of use cases, benchmarks give a rosy overview of a model’s capabilities. This paper tests conversational style flows that are much more representative of common AI applications and use cases.
+
+NOTES: THOUGH this deficit is only applicable when doing multiple turns within the same session (context and possibly bias due to that)
+
+
+----------------
+IN MY PAPER first mention the bias, then mention the multi-turn and then discuss why it may perform poorly. Then describe why I did what I did. 
+
+Of course, everyone was aware that LLMs have a max context window, and that it can forget stuff due to that (disregarding this problem but mention it)
+
+
+------------------
+PAPER: NoLiMa: Long-Context Evaluation Beyond Literal Matching
+
+We evaluate 12 popular LLMs that claim to support contexts of at least 128K tokens. While they perform well in short contexts (
+<
+1K), performance degrades significantly as context length increases. At 32K, for instance, 10 models drop below 50% of their strong short-length baselines. Even GPT-4o, one of the top-performing exceptions, experiences a reduction from an almost-perfect baseline of 99.3% to 69.7%. Our analysis suggests these declines stem from the increased difficulty the attention mechanism faces in longer contexts when literal matches are absent, making it harder to retrieve relevant information. 
+
+This paper also has nice diagrams and tables
+
+
+------------------------------------------------
+PAPER: Why Johnny Can’t Prompt: How Non-AI Experts Try (and Fail) to Design LLM Prompts
+
+HEAVILY CITED!!!!!
+
+
+-------------------------------
+PAPER: Does Prompt Formatting Have Any Impact on LLM Performance?
+
+Prompt format seems to have impact, prompt value is emphasized, larger models less susceptible to small variations in prompts?
+
+------------------------------
+PAPER: State of What Art? A Call for Multi-Prompt LLM Evaluation
+
+Abstract
+Recent advances in LLMs have led to an abundance of evaluation benchmarks, which typically rely on a single instruction template per task. We create a large-scale collection of instruction paraphrases and comprehensively analyze the brittleness introduced by single-prompt evaluations across 6.5M instances, involving 20 different LLMs and 39 tasks from 3 benchmarks. We find that different instruction templates lead to very different performance, both absolute and relative. Instead, we propose a set of diverse metrics on multiple instruction paraphrases, specifically tailored for different use cases (e.g., LLM vs. downstream development), ensuring a more reliable and meaningful assessment of LLM capabilities. We show that our metrics provide new insights into the strengths and limitations of current LLMs.
+
+
+RELEVANCE: This is very interesting. This highlights how brittle single prompts can be. 
+However, the later paper (on multi turn instructions) showed a huge degradation in performance from using multiple instructions.
+Thus, it might be an idea to try to enforce robustness within that single prompt (e.g. by having a panel).
+
+------------------------------
+PAPER: Which is better? Exploring Prompting Strategy For LLM-based Metrics
+
+This paper describes the DSBA submissions to the Prompting Large Language Models as Explainable Metrics shared task, where systems were submitted to two tracks: small and large summarization tracks. With advanced Large Language Models (LLMs) such as GPT-4, evaluating the quality of Natural Language Generation (NLG) has become increasingly paramount. Traditional similarity-based metrics such as BLEU and ROUGE have shown to misalign with human evaluation and are ill-suited for open-ended generation tasks. To address this issue, we explore the potential capability of LLM-based metrics, especially leveraging open-source LLMs. In this study, wide range of prompts and prompting techniques are systematically analyzed with three approaches: prompting strategy, score aggregation, and explainability. Our research focuses on formulating effective prompt templates, determining the granularity of NLG quality scores and assessing the impact of in-context examples on LLM-based evaluation. Furthermore, three aggregation strategies are compared to identify the most reliable method for aggregating NLG quality scores. To examine explainability, we devise a strategy that generates rationales for the scores and analyzes the characteristics of the explanation produced by the open-source LLMs. Extensive experiments provide insights regarding evaluation capabilities of open-source LLMs and suggest effective prompting strategies.
+
+RELEVANCE: Highlights areas where prompt is important (score) but also why explainability is great (rationale behind score).
+
+
+-------------------------------
+PAPER: On the Worst Prompt Performance of Large Language Models∗
+
+ABSTRACT:
+The performance of large language models (LLMs) is acutely sensitive to the
+phrasing of prompts, which raises significant concerns about their reliability in
+real-world scenarios. Existing studies often divide prompts into task-level instructions and case-level inputs and primarily focus on evaluating and improving
+robustness against variations in tasks-level instructions. However, this setup fails
+to fully address the diversity of real-world user queries and assumes the existence
+of task-specific datasets. To address these limitations, we introduce ROBUSTALPACAEVAL, a new benchmark that consists of semantically equivalent case-level
+queries and emphasizes the importance of using the worst prompt performance
+to gauge the lower bound of model performance. Extensive experiments on ROBUSTALPACAEVAL with ChatGPT and six open-source LLMs from the Llama,
+Mistral, and Gemma families uncover substantial variability in model performance;
+for instance, a difference of 45.48% between the worst and best performance for
+the Llama-2-70B-chat model, with its worst performance dipping as low as 9.38%.
+We further illustrate the difficulty in identifying the worst prompt from both modelagnostic and model-dependent perspectives, emphasizing the absence of a shortcut
+to characterize the worst prompt. We also attempt to enhance the worst prompt
+performance using existing prompt engineering and prompt consistency methods,
+but find that their impact is limited. These findings underscore the need to create
+more resilient LLMs that can maintain high performance across diverse prompts.
+Data and code are available at https://github.com/bwcao/RobustAlpacaEval.
+
+RELEVANCE: Again, highlights how brittle prompts can be (other paper above did too). HUGE performance delta of nearly 46% for one model (with worst performance being 9%). 
+Even then, trying to go from worst to best is an arduous task (hard to consistently improve the prompt, impact of following best practices alone is limited). 
