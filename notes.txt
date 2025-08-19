@@ -181,8 +181,8 @@ That’s like forcing each update to be based on an independent belief distribut
 In Bayesian terms, you’re not letting the joint “belief in the requirement quality” and “belief in the source’s reliability” accumulate correlation over time — so there’s no path-dependent bias buildup.
 
 3. The bottom line
-Your single-LLM feedback loop is a closed, self-reinforcing belief network — exactly the setup that produces confirmation bias in the BIASR model.
-Your multi-LLM setup is closer to fresh Bayesian updates with no memory of past correlations, so scores stay stable and less inflated.
+single-LLM feedback loop is a closed, self-reinforcing belief network — exactly the setup that produces confirmation bias in the BIASR model.
+ multi-LLM setup is closer to fresh Bayesian updates with no memory of past correlations, so scores stay stable and less inflated.
 
 
 Using a single LLM to both grade and rewrite a requirement in the same feedback loop can quickly lead to score inflation because the model’s assessment of quality and its preferred rewrite style become correlated, and it reuses this biased internal state in subsequent iterations. Without fully re-evaluating the text from scratch, the LLM tends to reward changes that match its own earlier decisions—even if the changes are superficial—creating a self-reinforcing cycle where scores rise regardless of actual improvement. This mirrors the confirmation bias mechanism described in the BIASR model, where forgetting the dependence between beliefs causes agents to overvalue confirmatory information and discount alternatives, leading to progressively skewed evaluations over time.
@@ -229,6 +229,20 @@ PAPER: Why Johnny Can’t Prompt: How Non-AI Experts Try (and Fail) to Design LL
 
 HEAVILY CITED!!!!!
 
+Difficult for non-experts to design a good prompt (this extends to experts although experts employ various strategies instead of guess work)
+
+"Moreover, established prompt design workfows do not yet exist"
+
+"Even for NLP experts, prompt engineering requires extensive trial
+and error, iteratively experimenting and assessing the efects of
+various prompt strategies on concrete input-output pairs, before
+assessing them more systematically on large datasets."
+
+"That said, ongoing NLP research does ofer some hints toward
+efective prompt design strategies. Notably, these prompt strategies are efective in improving LLMs’ performance over a range of
+NLP tasks and conversational contexts; it remains unclear to what
+extent these strategies can improve any particular conversational
+interactions or contexts."
 
 -------------------------------
 PAPER: Does Prompt Formatting Have Any Impact on LLM Performance?
@@ -254,7 +268,8 @@ This paper describes the DSBA submissions to the Prompting Large Language Models
 RELEVANCE: Highlights areas where prompt is important (score) but also why explainability is great (rationale behind score).
 
 
--------------------------------
+-------------------
+------------
 PAPER: On the Worst Prompt Performance of Large Language Models∗
 
 ABSTRACT:
@@ -278,3 +293,14 @@ Data and code are available at https://github.com/bwcao/RobustAlpacaEval.
 
 RELEVANCE: Again, highlights how brittle prompts can be (other paper above did too). HUGE performance delta of nearly 46% for one model (with worst performance being 9%). 
 Even then, trying to go from worst to best is an arduous task (hard to consistently improve the prompt, impact of following best practices alone is limited). 
+
+
+
+------------------
+TODO: paper
+175 lines of json to score a requirement roughly. 
+
+
+
+---------- 
+Test with and without the score.... 

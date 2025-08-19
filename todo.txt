@@ -52,3 +52,21 @@ Fix retry logic. Is it possible to extend the base model to check if valid json 
 If not, manually retry based on the output of clean_json_output. If None, then try again some number of times.
 
 
+
+Copilot as LLM option. 
+
+---------------
+
+
+Try panel of experts for refinement prompt, each expert provides a draft version of an improved prompt. 
+
+Grundfos people could then vote for their favorite version. 
+
+This allows us to:
+    - Find the expert that aligns the most with the org
+    - If the version that is drafted by this is good, it would be easy to have multiple draft/variations of the requirement 
+        for internal feedback (e.g. an expert would select 1 of 4)
+
+
+Do iteration 1 ASAP, write paper about that, then figure out if it is possible to do incremental learning 
+
