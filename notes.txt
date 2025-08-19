@@ -267,6 +267,9 @@ This paper describes the DSBA submissions to the Prompting Large Language Models
 
 RELEVANCE: Highlights areas where prompt is important (score) but also why explainability is great (rationale behind score).
 
+De finder at "fine-grained score" konsekvent outperformer en mere "coarse" vurdering. 
+
+Desuden finder de at let forståelige instruktioner (tilsyneladende tiltænkt mennesker) performer bedre end prompts, som er mere komplicerede og tiltænkt modellerne. 
 
 -------------------
 ------------
@@ -304,3 +307,10 @@ TODO: paper
 
 ---------- 
 Test with and without the score.... 
+
+
+
+we set the temperature to zero to eliminate response variability.
+
+
+se også email til poul hvor mange af pointerne er opsummeret. 
