@@ -16,7 +16,7 @@ class GPT(BaseModel):
     def __init__(
             self,
             model_name: str = "gpt-3.5-turbo",
-            temperature: float = 0.7,
+            temperature: float = 0,
             system_prompt: str = BaseModel.__init__.__defaults__[
                 1],  # Default system prompt from BaseModel
     ):

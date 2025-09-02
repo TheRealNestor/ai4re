@@ -17,7 +17,7 @@ class MistralModel(BaseModel):
     def __init__(
         self,
         model_name: str = "mistral-medium-latest", # Mistral medium 3, possibly worth trying "Mistral large" too and "Mistral small 3.2" (which is also open and cheaper)
-        temperature: float = 0.7,
+        temperature: float = 0,
         system_prompt: str = BaseModel.__init__.__defaults__[
             1
         ],  # Default system prompt from BaseModel

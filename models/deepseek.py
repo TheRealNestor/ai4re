@@ -16,7 +16,7 @@ class DeepSeek(BaseModel):
     def __init__(
         self,
         model_name: str = "deepseek-chat", # "deepseek-chat" and "deepseek-reasoner" (DeepSeek-V3-0324 and DeepSeek-R1-0528 respectively)
-        temperature: float = 0.7,
+        temperature: float = 0,
         system_prompt: str = BaseModel.__init__.__defaults__[1],  # Default system prompt from BaseModel
     ):
         super().__init__(model_name, temperature, system_prompt)

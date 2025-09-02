@@ -3,11 +3,29 @@ import time
 import random
 
 
+def is_valid_json(s: str) -> bool:
+    """
+    Check if a string is valid JSON.
+
+    Args:
+        s (str): The string to check.
+
+    Returns:
+        bool: True if the string is valid JSON, False otherwise.
+    """
+    import json
+
+    try:
+        json.loads(s)
+        return True
+    except ValueError:
+        return False
+
 class BaseModel(ABC):
     def __init__(
         self,
         model_name: str,
-        temperature: float = 0.7,
+        temperature: float = 0,
         system_prompt: str = "You are a helpful assistant.",
         max_retries: int = 5,
         retry_delay: float = 1,
@@ -62,7 +80,7 @@ class BaseModel(ABC):
         for attempt in range(self._max_retries):
             try:
                 response = self.query(prompt)
-                if response:  # Successfully got a response
+                if is_valid_json(response):
                     return response
 
             except Exception as e:

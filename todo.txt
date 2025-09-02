@@ -70,3 +70,7 @@ This allows us to:
 
 Do iteration 1 ASAP, write paper about that, then figure out if it is possible to do incremental learning 
 
+
+------------------
+
+Change the for loop logic to parallel with threads and async calls?

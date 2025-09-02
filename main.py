@@ -203,13 +203,11 @@ def score_requirements():
     csv_file: str = "data/software-requirements-dataset/requirements.csv"
     requirements_df = df_from_csv_n(csv_file, n=100, random_state=42)
 
-    # Clean the requirement text
     requirements_df["Requirement"] = requirements_df["Requirement"].apply(clean_text)
 
     print(f"Loaded {len(requirements_df)} requirements from {csv_file}")
     print(requirements_df.head())
 
-    # scoring_prompt: str = get_prompt("scoring_v4.txt", prompt_dir="prompts/scoring")
     scoring_prompt: str = get_prompt(
         "mixture_of_opinions_v2.txt", prompt_dir="prompts/scoring"
     )
@@ -218,8 +216,14 @@ def score_requirements():
         # MistralModel(
         #     model_name="magistral-medium-2507",  #  frontier-class reasoning model released July 2025.
         #     system_prompt=scoring_prompt,
-        #     temperature=0.25,
         # ),
+        MistralModel(
+            model_name="mistral-medium-latest", # could go with "mistral-medium-2508" also
+            system_prompt=scoring_prompt
+        ),
+
+
+
         # GPT(
         #     model_name="gpt-5",  # Sometimes a thinking/reasoning model for complex prompts or when manually activated? Released in august 2025
         #     system_prompt=scoring_prompt,
@@ -228,49 +232,45 @@ def score_requirements():
         # GPT(
         #     model_name="gpt-4.1",
         #     system_prompt=scoring_prompt,
-        #     temperature=0.25,
         # ),
-        # Claude(
-        #     model_name="claude-opus-4-1-20250805",
-        #     system_prompt=scoring_prompt,
-        #     temperature=0.25,
-        # ),
-        # TODO: This one is really expensive, 5x sonnet which is also fairly pricy
+        GPT(
+            model_name="gpt-5-mini",
+            system_prompt=scoring_prompt,
+            temperature=1
+        ),
+        GPT(
+            model_name="gpt-5-nano",
+            system_prompt=scoring_prompt,
+            temperature=1
+        )
+
+
+
+
         # Claude(
         #     model_name="claude-sonnet-4-20250514",
         #     system_prompt=scoring_prompt,
-        #     temperature=0.25,
         # ),
-        Gemini(
-            model_name="gemini-2.5-pro",
-            system_prompt=scoring_prompt,
-            temperature=0.25,
-        ),
-
-
-        # TODO: Can possibly run grok and deepseek after if not expensive.
-
-        # DeepSeek(
-        #     model_name="r1",
-        #     system_prompt=scoring_prompt,
-        #     temperature=0.25,
+        
+        
+        # Gemini(
+        #     model_name="gemini-2.5-pro",
+        #     system_prompt=scoring_prompt
+        # ),
+        # Gemini(
+        #     model_name="gemini-2.5-flash",
+        #     system_prompt=scoring_prompt
+        # ),
+        # Gemini(
+        #     model_name="gemini-2.5-flash-lite",
+        #     system_prompt=scoring_prompt
         # )
 
 
-        # DeepSeek(system_prompt=scoring_prompt, temperature=0.25),
-        # Grok(system_prompt=scoring_prompt, temperature=0.25),
-        # Qwen?
-        # Llama(system_prompt=scoring_prompt, temperature=0.25),
     ]
 
     # Create output directory
     os.makedirs("results", exist_ok=True)
-
-    # print first 15 requirements and their id in the df
-    # print("First 15 requirements:")
-    # for idx, row in requirements_df.head(15).iterrows():
-    #     print(f"ID: {idx}, Requirement: {row['Requirement']}, Type: {row['Type']}")
-
 
     for model in scoring_models:
         print(f"Processing with model: {model.model_name}")
@@ -397,7 +397,10 @@ if __name__ == "__main__":
 
     # scoring_prompt = get_prompt("scoring_v4.txt", prompt_dir="prompts/scoring")
     # scoring_prompt = get_prompt("mixture_of_opinions_v2.txt", prompt_dir="prompts/scoring")
-    # model = MistralModel(system_prompt=scoring_prompt, temperature=0.25)
+    # model = GPT(
+    #     model_name="gpt-5",
+    #     temperature=0)
+
 
     # example_requirement_good: str = "The system shall be in compliance with IP level IP44 as defined in IEC 60529."
     # example_requirement_bad: str = "The system shall comply with EN 61800-5-1:2007"

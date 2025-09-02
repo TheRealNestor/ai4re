@@ -17,7 +17,7 @@ class Claude(BaseModel):
     def __init__(
         self,
         model_name: str = "claude-3-5-haiku-latest",
-        temperature: float = 0.7,
+        temperature: float = 0,
         system_prompt: str = "You are a helpful assistant.",
     ):
         super().__init__(model_name, temperature, system_prompt)

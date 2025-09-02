@@ -16,7 +16,7 @@ class Grok(BaseModel):
     def __init__(
         self,
         model_name: str = "grok-3-mini",
-        temperature: float = 0.7,
+        temperature: float = 0,
         system_prompt: str = BaseModel.__init__.__defaults__[1],  # Default system prompt from BaseModel
     ):
         super().__init__(model_name, temperature, system_prompt)

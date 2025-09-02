@@ -17,7 +17,7 @@ class Qwen(BaseModel):
     def __init__(
         self,
         model_name: str = "qwen-plus",
-        temperature: float = 0.7,
+        temperature: float = 0,
         system_prompt=BaseModel.__init__.__defaults__[1],
     ):
         super().__init__(model_name, temperature, system_prompt)
