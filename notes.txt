@@ -72,28 +72,6 @@ https://aclanthology.org/2024.findings-emnlp.432.pdf
 Sampling temperature is not statistically significant across models, domains, etc. 
 
 
---------------------------
-TO ASGER: 
-General description of task at hand? 
-Method okay? 
-
-I'm doing some benchmarking for a small project. The project is about improving the quality of software requirements with generative AI. 
-
-I'm feeding a single requirement into an LLM, which then scores it. The output from this LLM is fed into another LLM (without this scoring context or message history), which uses the feedback to draft an improved version of the requirement. Finally, the requirement is sent to the initial scoring model (without the history of the first interaction).
-
-I'm trying to determine the best prompt for refining the requirement. For this reason,  I think it might be smart to keep the scoring model and prompt the same throughout the test. How would I determine the best model to use for this when I have multiple candidates (which are also being used for the refinement).
-
-I was thinking about running each model on a sizeable subset of my requirements (the same subset for each model), then take the average score and use the model that was closest to this. Is this a valid approach? 
-
-
-TODO: 
-IDEAS: 
-- Use a gold standard validation set. Can I get an expert from Grundfos to validate 100 requirements  
-
-- Maybe do some kind of inter-model agreement/correlation analysis and not just an average?
-    It would be best if we pick models that show high agreement with the majority often.
-
-
 
 --------------------
 
@@ -313,4 +291,11 @@ Test with and without the score....
 we set the temperature to zero to eliminate response variability.
 
 
-se også email til poul hvor mange af pointerne er opsummeret. 
+
+-------------------
+
+What is important here? Thinking/Reasoning seems to contribute to time/cost significantly. Manually configuring thinking budget may help if refinement process is too slow.
+Then provide an example where thinking is full and turned off and measure time. 
+
+----------------------
+We also show that Google's software efficiency efforts and clean energy procurement have driven a 33x reduction in energy consumption and a 44x reduction in carbon footprint for the median Gemini Apps text prompt over one year. We identify that the median Gemini Apps text prompt uses less energy than watching nine seconds of television (0.24 Wh) and consumes the equivalent of five drops of water (0.26 mL)

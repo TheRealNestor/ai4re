@@ -14,7 +14,7 @@ if not API_KEY:
     )
 
 
-class Gemini(BaseModel):
+class Google(BaseModel):
 
     def __init__(
         self,

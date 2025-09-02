@@ -4,7 +4,7 @@ import json
 from models.base_model import BaseModel
 from models.gpt import GPT
 from models.claude import Claude
-from models.gemini import Gemini
+from models.google import Google
 from models.deepseek import DeepSeek
 from models.grok import Grok
 from models.mistral import MistralModel
@@ -242,7 +242,7 @@ def score_requirements():
             model_name="gpt-5-nano",
             system_prompt=scoring_prompt,
             temperature=1
-        )
+        ),
 
 
 
@@ -253,19 +253,35 @@ def score_requirements():
         # ),
         
         
-        # Gemini(
-        #     model_name="gemini-2.5-pro",
-        #     system_prompt=scoring_prompt
-        # ),
-        # Gemini(
-        #     model_name="gemini-2.5-flash",
-        #     system_prompt=scoring_prompt
-        # ),
-        # Gemini(
+        Google(
+            model_name="gemini-2.5-pro",
+            system_prompt=scoring_prompt
+        ),
+        Google(
+            model_name="gemini-2.5-flash",
+            system_prompt=scoring_prompt
+        ),
+        Google(
+            model_name="gemma-3-27b",
+            system_prompt=scoring_prompt
+        ),
+        Google(
+            model_name="gemma-3-270m",
+            system_prompt=scoring_prompt
+        ),
+        
+        # Google(
         #     model_name="gemini-2.5-flash-lite",
         #     system_prompt=scoring_prompt
-        # )
-
+        # ),
+        # Google(
+        #     model_name="gemma-3-4b",
+        #     system_prompt=scoring_prompt
+        # ),
+        # Google(
+        #     model_name="gemma-3-12b",
+        #     system_prompt=scoring_prompt
+        # ),
 
     ]
 
