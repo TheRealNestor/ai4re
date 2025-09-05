@@ -3,6 +3,10 @@ from models.base_model import BaseModel
 from google import genai
 from google.genai import types
 
+
+import json
+import re
+
 import os
 from dotenv import load_dotenv
 
@@ -52,7 +56,32 @@ class Google(BaseModel):
                 ),
                 contents=prompt,
             )
-            return response.candidates[0].content if response.candidates else None
+            content = response.candidates[0].content if response.candidates else None
+            # If content is an object, extract its text attribute
+            if content:
+                # Extract text from Content object
+                if hasattr(content, "parts") and content.parts:
+                    # Assume first part contains the main text
+                    part = content.parts[0]
+                    content_text = getattr(part, "text", None)
+                elif hasattr(content, "text"):
+                    content_text = content.text
+                elif isinstance(content, str):
+                    content_text = content
+                else:
+                    print("Unknown content type:", type(content))
+                    return None
+                # Extract JSON from Markdown or text
+                match = re.search(r"```json\s*(\{.*\})\s*```", content_text, re.DOTALL)
+                if not match:
+                    match = re.search(r"(\{.*\})", content_text, re.DOTALL)
+                if match:
+                    json_str = match.group(1)
+                    return json_str
+                else:
+                    print("No JSON found in response.")
+                    return None
+            return None
 
         except Exception as e:
             print(f"An error occurred: {e}")

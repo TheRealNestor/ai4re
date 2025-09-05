@@ -9,7 +9,9 @@ from models.deepseek import DeepSeek
 from models.grok import Grok
 from models.mistral import MistralModel
 from models.qwen import Qwen
-from models.llama import Llama
+from models.together import Together
+
+from util.json_utils import clean_json_output
 
 import pandas as pd
 from typing import Dict, List, Optional
@@ -17,7 +19,8 @@ from typing import Dict, List, Optional
 from dataclasses import dataclass
 
 import tqdm
-import re # cleaning text
+import re  # cleaning text
+
 
 @dataclass
 class RequirementResult:
@@ -90,51 +93,6 @@ def df_from_csv_n(csv_file: str, n: int, random_state: int = 42) -> pd.DataFrame
     df = pd.read_csv(csv_file)
     df = df.sample(n=n, random_state=random_state)
     return df
-
-def clean_json_output(response: str):
-    """Clean and parse JSON output from model response."""
-    if not response:
-        return None
-
-    try:
-        # Try to extract JSON from response if it's wrapped in markdown or other text
-        start_idx = response.find("{")
-        end_idx = response.rfind("}")
-
-        if start_idx != -1 and end_idx != -1:
-            json_str = response[start_idx : end_idx + 1]
-            return json.loads(json_str)
-        else:
-            # If no JSON brackets found, try parsing the whole response
-            return json.loads(response)
-    except json.JSONDecodeError as e:
-        print(f"JSON parsing error: {e}")
-        print(f"Response length: {len(response)} characters")
-        print("=" * 80)
-        print("FULL RESPONSE BEING PARSED:")
-        print("=" * 80)
-        print(response)
-        print("=" * 80)
-        
-        # Also show just the JSON part if we found brackets
-        start_idx = response.find("{")
-        end_idx = response.rfind("}")
-        if start_idx != -1 and end_idx != -1:
-            json_str = response[start_idx : end_idx + 1]
-            print("EXTRACTED JSON STRING:")
-            print("=" * 80)
-            print(json_str)
-            print("=" * 80)
-        
-        return None
-    except Exception as e:
-        print(f"Unexpected error parsing JSON: {e}")
-        print("=" * 80)
-        print("FULL RESPONSE BEING PARSED:")
-        print("=" * 80)
-        print(response)
-        print("=" * 80)
-        return None
 
 
 # factory function for creating models
@@ -214,75 +172,40 @@ def score_requirements():
 
     scoring_models: List[BaseModel] = [
         # MistralModel(
-        #     model_name="magistral-medium-2507",  #  frontier-class reasoning model released July 2025.
+        #     model_name="mistral-medium-latest",
         #     system_prompt=scoring_prompt,
         # ),
-        MistralModel(
-            model_name="mistral-medium-latest", # could go with "mistral-medium-2508" also
-            system_prompt=scoring_prompt
-        ),
-
-
-
         # GPT(
-        #     model_name="gpt-5",  # Sometimes a thinking/reasoning model for complex prompts or when manually activated? Released in august 2025
+        #     model_name="gpt-5",
         #     system_prompt=scoring_prompt,
-        #     temperature=1, # Only default value of 1 is supported.
+        #     temperature=1,
         # ),
         # GPT(
         #     model_name="gpt-4.1",
         #     system_prompt=scoring_prompt,
         # ),
-        GPT(
-            model_name="gpt-5-mini",
-            system_prompt=scoring_prompt,
-            temperature=1
-        ),
-        GPT(
-            model_name="gpt-5-nano",
-            system_prompt=scoring_prompt,
-            temperature=1
-        ),
-
-
-
-
+        # GPT(model_name="gpt-5-mini", system_prompt=scoring_prompt, temperature=1),
+        # GPT(model_name="gpt-5-nano", system_prompt=scoring_prompt, temperature=1),
+        # Together(
+        #     model_name="meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+        #     system_prompt=scoring_prompt,
+        # ),
+        # Together(
+        #     model_name="meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        #     system_prompt=scoring_prompt,
+        # ),
+        # Together(model_name="openai/gpt-oss-120b", system_prompt=scoring_prompt),
         # Claude(
         #     model_name="claude-sonnet-4-20250514",
         #     system_prompt=scoring_prompt,
         # ),
-        
-        
-        Google(
-            model_name="gemini-2.5-pro",
-            system_prompt=scoring_prompt
-        ),
-        Google(
-            model_name="gemini-2.5-flash",
-            system_prompt=scoring_prompt
-        ),
-        Google(
-            model_name="gemma-3-27b",
-            system_prompt=scoring_prompt
-        ),
-        Google(
-            model_name="gemma-3-270m",
-            system_prompt=scoring_prompt
-        ),
-        
-        # Google(
-        #     model_name="gemini-2.5-flash-lite",
-        #     system_prompt=scoring_prompt
-        # ),
-        # Google(
-        #     model_name="gemma-3-4b",
-        #     system_prompt=scoring_prompt
-        # ),
-        # Google(
-        #     model_name="gemma-3-12b",
-        #     system_prompt=scoring_prompt
-        # ),
-
+        # Google(model_name="gemini-2.5-pro", system_prompt=scoring_prompt),
+        # Google(model_name="gemini-2.5-flash", system_prompt=scoring_prompt),
+        # Google(model_name="gemma-3-27b", system_prompt=scoring_prompt),
+        # Google(model_name="gemma-3-270m", system_prompt=scoring_prompt),
+        # Google(model_name="gemini-2.5-flash-lite", system_prompt=scoring_prompt),
+        # Google(model_name="gemma-3-4b", system_prompt=scoring_prompt),
+        # Google(model_name="gemma-3-12b", system_prompt=scoring_prompt),
     ]
 
     # Create output directory
@@ -292,7 +215,11 @@ def score_requirements():
         print(f"Processing with model: {model.model_name}")
         model_results = []
 
-        for idx, row in tqdm.tqdm(requirements_df.iterrows(), desc=f"Scoring with {model.model_name}", total=len(requirements_df)):
+        for idx, row in tqdm.tqdm(
+            requirements_df.iterrows(),
+            desc=f"Scoring with {model.model_name}",
+            total=len(requirements_df),
+        ):
             req = row["Requirement"]
             req_type = row["Type"]
 
@@ -310,7 +237,7 @@ def score_requirements():
                     f"Failed to parse JSON response for requirement: {req} from model: {model.model_name}"
                 )
                 continue
-            
+
             overall_score = extract_basic_score(cleaned_response)
 
             result = RequirementResult(
@@ -328,7 +255,7 @@ def score_requirements():
             model_results.append(result)
 
         # Save this model's results immediately
-        safe_model_name = model.model_name.replace('-', '_').replace('.', '_')
+        safe_model_name = re.sub(r"[^A-Za-z0-9_]", "_", model.model_name)
         output_file_path = f"results/{safe_model_name}_scores.json"
         with open(output_file_path, "w") as f:
             json.dump([result.__dict__ for result in model_results], f, indent=4)
@@ -338,6 +265,35 @@ def score_requirements():
 if __name__ == "__main__":
 
     score_requirements()
+
+    # Rerun the oss 120 b 
+    # single_model = Together(
+    #     model_name="openai/gpt-oss-120b",
+    #     system_prompt=get_prompt(
+    #         "mixture_of_opinions_v2.txt", prompt_dir="prompts/scoring"
+    #     ),
+    # )
+    # requirement = "The system shall link Events back to either the Sync Matrix 1.0 or the Exercise Managment Tool 1.0 applications for modifications."
+    # requirement_type = "F"
+    # response = single_model.query_with_retry(requirement)
+    # cleaned_response = clean_json_output(response)
+    # overall_score = extract_basic_score(cleaned_response)
+
+    # req_result = RequirementResult(
+    #     original_requirement=requirement,
+    #     requirement_type=requirement_type,
+    #     model_name=single_model.model_name,
+    #     score_response=cleaned_response,
+    #     overall_score=overall_score,
+    #     refined_requirement=None,
+    #     refined_response=None,
+    #     refined_score=None,
+    #     refined_score_raw_response=None,
+    # )
+
+    # output_file_path = f"results/temp_single_score.json"
+    # with open(output_file_path, "w") as f:
+    #     json.dump([req_result.__dict__], f, indent=4)
 
     # # REFINE the requirements
     # refinement_prompt: str = get_prompt("refinement_v2.txt", prompt_dir="prompts/refinement")
@@ -416,7 +372,6 @@ if __name__ == "__main__":
     # model = GPT(
     #     model_name="gpt-5",
     #     temperature=0)
-
 
     # example_requirement_good: str = "The system shall be in compliance with IP level IP44 as defined in IEC 60529."
     # example_requirement_bad: str = "The system shall comply with EN 61800-5-1:2007"

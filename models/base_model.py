@@ -2,24 +2,7 @@ from abc import ABC, abstractmethod
 import time
 import random
 
-
-def is_valid_json(s: str) -> bool:
-    """
-    Check if a string is valid JSON.
-
-    Args:
-        s (str): The string to check.
-
-    Returns:
-        bool: True if the string is valid JSON, False otherwise.
-    """
-    import json
-
-    try:
-        json.loads(s)
-        return True
-    except ValueError:
-        return False
+from util.json_utils import is_valid_json
 
 class BaseModel(ABC):
     def __init__(
@@ -27,8 +10,8 @@ class BaseModel(ABC):
         model_name: str,
         temperature: float = 0,
         system_prompt: str = "You are a helpful assistant.",
-        max_retries: int = 5,
-        retry_delay: float = 1,
+        max_retries: int = 10,
+        retry_delay: float = 0.2,
     ):
         self._model_name = model_name
         self._temperature = temperature
@@ -80,31 +63,36 @@ class BaseModel(ABC):
         for attempt in range(self._max_retries):
             try:
                 response = self.query(prompt)
-                if is_valid_json(response):
+                if response and is_valid_json(response):
                     return response
-
+                else:
+                    # Treat None or invalid JSON as retryable error
+                    print(
+                        f"Attempt {attempt + 1} failed for {self.model_name}: Invalid or empty response."
+                    )
             except Exception as e:
-                error_msg = str(e).upper()  # Convert to uppercase for easier matching
-
-                # Non-retryable errors that should fail immediately
+                error_msg = str(e).upper()
                 non_retryable_errors = [
-                    "MAX_TOKENS",  # Token limit hit - increase max_output_tokens
+                    "MAX_TOKENS",
                 ]
-
-                # Retryable errors
                 retryable_errors = [
                     "CONNECTION ERROR",
                     "INTERNAL SERVER ERROR",
                     "500",
-                    "502", 
+                    "502",
                     "503",
                     "504",
+                    "UNAVAILABLE",
                     "TIMEOUT",
                     "RATE LIMIT",
                     "COULD NOT EXTRACT TEXT FROM RESPONSE",
-                    "PARTS=NONE", 
-                    "TRUNCATED_JSON",  # JSON was cut off, retry might help
+                    "PARTS=NONE",
+                    "TRUNCATED_JSON",
                 ]
+
+                print(
+                    f"Attempt {attempt + 1} failed for {self.model_name}: {e}. Retrying in {self._retry_delay:.1f}s..."
+                )
 
                 is_non_retryable = any(err in error_msg for err in non_retryable_errors)
                 is_retryable = any(err in error_msg for err in retryable_errors)
@@ -116,10 +104,10 @@ class BaseModel(ABC):
                     print(f"Final attempt failed for {self.model_name}: {e}")
                     return None
 
-                # Calculate delay with exponential backoff + jitter
-                delay = self._retry_delay * (2**attempt) + random.uniform(0, 1)
-                print(f"Attempt {attempt + 1} failed for {self.model_name}: {e}. Retrying in {delay:.1f}s...")
-                time.sleep(delay)
+            # Exponential backoff + jitter
+            delay = self._retry_delay * (2**attempt) + random.uniform(0, 1)
+            time.sleep(delay)
+            continue
 
         return None
 

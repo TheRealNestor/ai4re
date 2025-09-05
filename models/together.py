@@ -1,6 +1,6 @@
 from models.base_model import BaseModel
 
-from together import Together
+import together
 
 import os
 from dotenv import load_dotenv
@@ -13,7 +13,7 @@ if not API_KEY:
     )
 
 
-class Llama(BaseModel):
+class Together(BaseModel):
 
     def __init__(
         self,
@@ -24,7 +24,7 @@ class Llama(BaseModel):
         ],  # Default system prompt from BaseModel
     ):
         super().__init__(model_name, temperature, system_prompt)
-        self.client = Together(api_key=API_KEY)
+        self.client = together.Together(api_key=API_KEY)
 
     def query(self, prompt: str) -> str:
         if not prompt:
@@ -42,3 +42,4 @@ class Llama(BaseModel):
         except Exception as e:
             print(f"An error occurred: {e}")
             return None
+
